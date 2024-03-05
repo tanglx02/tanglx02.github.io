@@ -56,6 +56,20 @@
 
   
   <url>
+    <loc>http://www.tanglx.cn/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2024-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.tanglx.cn/tags/%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2024-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.tanglx.cn/tags/Linux/</loc>
     <lastmod>2024-03-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -83,31 +97,17 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>http://www.tanglx.cn/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2024-03-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.tanglx.cn/tags/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2024-03-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
-    <loc>http://www.tanglx.cn/categories/Linux/</loc>
+    <loc>http://www.tanglx.cn/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2024-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.tanglx.cn/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>http://www.tanglx.cn/categories/Linux/</loc>
     <lastmod>2024-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

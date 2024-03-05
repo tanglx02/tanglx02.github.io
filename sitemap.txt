@@ -4,11 +4,11 @@ http://www.tanglx.cn/2021/05/31/linux/%E6%88%91%E7%94%A8%E7%9A%84manjaro%E8%BD%A
 http://www.tanglx.cn/404.html
 http://www.tanglx.cn/about/index.html
 http://www.tanglx.cn/
+http://www.tanglx.cn/tags/%E5%B7%A5%E5%85%B7/
+http://www.tanglx.cn/tags/%E6%B5%8B%E8%AF%95/
 http://www.tanglx.cn/tags/Linux/
 http://www.tanglx.cn/tags/manjaro/
 http://www.tanglx.cn/tags/%E9%99%8D%E5%99%AA/
 http://www.tanglx.cn/tags/%E8%BD%AF%E4%BB%B6/
-http://www.tanglx.cn/tags/%E5%B7%A5%E5%85%B7/
-http://www.tanglx.cn/tags/%E6%B5%8B%E8%AF%95/
-http://www.tanglx.cn/categories/Linux/
 http://www.tanglx.cn/categories/%E5%B7%A5%E5%85%B7/
+http://www.tanglx.cn/categories/Linux/
