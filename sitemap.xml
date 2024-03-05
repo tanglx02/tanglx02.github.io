@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.tanglx.cn/2023/07/18/linux/manjaro%E5%BD%95%E9%9F%B3%E9%99%8D%E5%99%AA/</loc>
+    <loc>http://www.tanglx.cn/2021/05/31/linux/%E6%88%91%E7%94%A8%E7%9A%84manjaro%E8%BD%AF%E4%BB%B6/</loc>
     
     <lastmod>2024-03-05</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://www.tanglx.cn/2021/05/31/linux/%E6%88%91%E7%94%A8%E7%9A%84manjaro%E8%BD%AF%E4%BB%B6/</loc>
+    <loc>http://www.tanglx.cn/2023/07/18/linux/manjaro%E5%BD%95%E9%9F%B3%E9%99%8D%E5%99%AA/</loc>
     
     <lastmod>2024-03-05</lastmod>
     
@@ -54,6 +54,13 @@
   </url>
   
   <url>
+    <loc>http://www.tanglx.cn/tags/%E8%BD%AF%E4%BB%B6/</loc>
+    <lastmod>2024-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.tanglx.cn/tags/manjaro/</loc>
     <lastmod>2024-03-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -62,13 +69,6 @@
   
   <url>
     <loc>http://www.tanglx.cn/tags/%E9%99%8D%E5%99%AA/</loc>
-    <lastmod>2024-03-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.tanglx.cn/tags/%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2024-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
