@@ -6,7 +6,7 @@
   <link href="http://www.tanglx.cn/atom.xml" rel="self"/>
   
   <link href="http://www.tanglx.cn/"/>
-  <updated>2024-03-11T08:42:06.000Z</updated>
+  <updated>2024-03-11T08:55:13.000Z</updated>
   <id>http://www.tanglx.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1/"/>
     <id>http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1/</id>
     <published>2024-03-11T08:27:46.000Z</published>
-    <updated>2024-03-11T08:42:06.000Z</updated>
+    <updated>2024-03-11T08:55:13.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="华为设备开启dhcp服务"><a href="#华为设备开启dhcp服务" class="headerlink" title="华为设备开启dhcp服务"></a>华为设备开启dhcp服务</h1><p><img src="https://picture.tanglx.cn/web/2024/1710146368786.png" alt="enter description here"><br><strong>1.对AR1路由器进行配置</strong></p><pre><code class="routeros?linenums">&lt;AR1&gt;system-view //进入系统视图[AR1]int GigabitEthernet 0/0/0//进入接口[AR1-GigabitEthernet0/0/0]ip add 192.168.1.1 255.255.255.0   //配置接口ip[AR1-GigabitEthernet0/0/0]quit//退到系统视图[AR1]dhcp enable//开启dhcp服务[AR1]int g0/0/0进入接口[AR1-GigabitEthernet0/0/0]dhcp select interface   //指定接口开启dhcp</code></pre><p><strong>之后局域网下pc就能获取到ip地址</strong><br><img src="https://picture.tanglx.cn/web/2024/1710146299692.png" alt="enter description here"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="华为设备开启dhcp服务"><a href="#华为设备开启dhcp服务" class="headerlink" title="华为设备开启dhcp服务"></a>华为设备开启dhcp服务</h1><p><img src="https://picture.tanglx.cn/web/2024/1710146368786.png"><br><strong>1.对AR1路由器进行配置</strong></p><pre><code class="text">&lt;AR1&gt;system-view //进入系统视图[AR1]int GigabitEthernet 0/0/0//进入接口[AR1-GigabitEthernet0/0/0]ip add 192.168.1.1 255.255.255.0   //配置接口ip[AR1-GigabitEthernet0/0/0]quit//退到系统视图[AR1]dhcp enable//开启dhcp服务[AR1]int GigabitEthernet 0/0/0进入接口[AR1-GigabitEthernet0/0/0]dhcp select interface   //指定接口开启dhcp</code></pre><p><strong>2.之后局域网下pc就能获取到ip地址</strong><br><img src="https://picture.tanglx.cn/web/2024/1710146299692.png"></p>]]></content>
     
     
       
