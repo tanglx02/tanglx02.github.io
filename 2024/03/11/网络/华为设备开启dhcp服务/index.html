@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>我在manjaro下使用的软件 | 汤小汤博客</title>
-  <meta name="keywords" content=" Linux , manjaro , 软件 ">
-  <meta name="description" content="我在manjaro下使用的软件 | 汤小汤博客">
+  <title>华为设备开启dhcp服务 | 汤小汤博客</title>
+  <meta name="keywords" content=" 网络 , 数通 , 华为 , 命令 , dhcp ">
+  <meta name="description" content="华为设备开启dhcp服务 | 汤小汤博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="页面未找到！">
 <meta property="og:type" content="website">
@@ -364,9 +364,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-linux/我用的manjaro软件" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-网络/华为设备开启dhcp服务" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">我在manjaro下使用的软件</h1>
+        <h1 class="article-title">华为设备开启dhcp服务</h1>
     
     <div class="article-meta">
         
@@ -376,7 +376,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Linux">Linux</a>
+            <a  data-rel="网络">网络</a>
             
         </span>
         
@@ -384,23 +384,27 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color1">Linux</a>
+            <a class="color3">网络</a>
             
-            <a class="color3">manjaro</a>
+            <a class="color3">数通</a>
             
-            <a class="color3">软件</a>
+            <a class="color3">华为</a>
+            
+            <a class="color3">命令</a>
+            
+            <a class="color5">dhcp</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-03-05 20:21:57'>2021-05-31 10:24</time>
+            发布时间 : <time class="date" title='最后更新: 2024-03-11 16:42:06'>2024-03-11 16:27</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:468</span>
+        <span>字数:114</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -430,7 +434,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GUI-%E6%80%BB%E8%A7%88"><span class="toc-text">GUI 总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CLI-%E6%80%BB%E8%A7%88"><span class="toc-text">CLI 总览</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1"><span class="toc-text">华为设备开启dhcp服务</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -446,303 +450,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>循序渐进收集Linux下好用的软件，学习它并替代Windows下的各类软件</p>
-<h1 id="GUI-总览"><a href="#GUI-总览" class="headerlink" title="GUI 总览"></a>GUI 总览</h1><table>
-<thead>
-<tr>
-<th>软件名称</th>
-<th>类别</th>
-<th>安装方式</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>视频图片类</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>kdenlive</td>
-<td>视频处理</td>
-<td>pacman</td>
-<td>视频剪辑软件</td>
-</tr>
-<tr>
-<td>gimp</td>
-<td>图片处理</td>
-<td>pacman</td>
-<td>Linux下的PS</td>
-</tr>
-<tr>
-<td>flameshot</td>
-<td>截图工具</td>
-<td>pacman</td>
-<td>Linux下非常强大的截图工具</td>
-</tr>
-<tr>
-<td>vokoscreen</td>
-<td>视频录制</td>
-<td>pacman</td>
-<td>优秀的录屏软件</td>
-</tr>
-<tr>
-<td>nomacs</td>
-<td>图片查看工具</td>
-<td>pacman</td>
-<td>可以对图片进行简单编辑</td>
-</tr>
-<tr>
-<td>vlc</td>
-<td>视频查看工具</td>
-<td>pacman</td>
-<td>查看视频</td>
-</tr>
-<tr>
-<td>picgo</td>
-<td>图片上传</td>
-<td><a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/picgo/">aur</a></td>
-<td>作图床配合markdown</td>
-</tr>
-<tr>
-<td>cheese</td>
-<td>拍照</td>
-<td>pacman</td>
-<td>茄子拍照</td>
-</tr>
-<tr>
-<td><strong>办公学习类</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>gnome-shell-pomodoro</td>
-<td>时间管理</td>
-<td><a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/gnome-shell-pomodoro/">aur</a></td>
-<td>番茄钟</td>
-</tr>
-<tr>
-<td>小书匠</td>
-<td>markdown</td>
-<td><a target="_blank" rel="noopener" href="https://github.com/suziwen/markdownxiaoshujiang/releases">http</a></td>
-<td>markdown笔记软件</td>
-</tr>
-<tr>
-<td>typora</td>
-<td>markdown</td>
-<td>pacman</td>
-<td>markdown笔记软件，比较火</td>
-</tr>
-<tr>
-<td>edrawmax-cn</td>
-<td>流程图</td>
-<td><a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/edrawmax-cn/">aur</a></td>
-<td>”亿图图示“类似visio</td>
-</tr>
-<tr>
-<td>thunderbird</td>
-<td>通讯邮箱</td>
-<td>pacman</td>
-<td>“雷鸟” 邮箱</td>
-</tr>
-<tr>
-<td>teamviewer</td>
-<td>远程控制</td>
-<td>pacman</td>
-<td>全平台通用</td>
-</tr>
-<tr>
-<td>telegram</td>
-<td>通讯交流</td>
-<td><a target="_blank" rel="noopener" href="https://aur.archlinux.org/64gram-desktop.git">aur</a></td>
-<td>telegram</td>
-</tr>
-<tr>
-<td>geary</td>
-<td>通讯邮箱</td>
-<td>pacman</td>
-<td>邮箱</td>
-</tr>
-<tr>
-<td><strong>小工具</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>utools</td>
-<td>工具集</td>
-<td>aur</td>
-<td>工具及搜索</td>
-</tr>
-<tr>
-<td>v2raya</td>
-<td>代理</td>
-<td>aur</td>
-<td>支持多种协议，需要安装v2ray-core</td>
-</tr>
-<tr>
-<td>etcher</td>
-<td>U盘制作</td>
-<td>aur</td>
-<td>好用的U盘制作工具</td>
-</tr>
-<tr>
-<td>gparted</td>
-<td>分区软件</td>
-<td>pacman</td>
-<td>分区工具</td>
-</tr>
-<tr>
-<td>xunlei-bin</td>
-<td>下载工具</td>
-<td>aur</td>
-<td>迅雷</td>
-</tr>
-<tr>
-<td>freedownloadmanager</td>
-<td>下载工具</td>
-<td>pacman</td>
-<td>FDM</td>
-</tr>
-<tr>
-<td>baidunetdisk-bin</td>
-<td>网盘</td>
-<td>aur</td>
-<td>百度云网盘</td>
-</tr>
-<tr>
-<td>checkra1n-cli</td>
-<td>苹果越狱</td>
-<td>aur</td>
-<td>苹果越狱软件</td>
-</tr>
-<tr>
-<td>remmina freeedp</td>
-<td>RDP连接工具,需要再安装freerdp</td>
-<td>pacman</td>
-<td>需要下载freerdp插件</td>
-</tr>
-<tr>
-<td>alacritty</td>
-<td>终端</td>
-<td>pacman</td>
-<td>显卡渲染的终端</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>影音娱乐</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>netease-cloud-music</td>
-<td>音乐</td>
-<td>pacman</td>
-<td>网易云音乐</td>
-</tr>
-<tr>
-<td>electron-netease-cloud-music</td>
-<td>音乐</td>
-<td>pacman</td>
-<td>非官方网易云音乐</td>
-</tr>
-<tr>
-<td><strong>浏览器</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>microsoft-edge-stable-bin</td>
-<td>浏览器</td>
-<td>yay</td>
-<td>edge浏览器</td>
-</tr>
-<tr>
-<td>google-chrome</td>
-<td>浏览器</td>
-<td>yay</td>
-<td>google浏览器</td>
-</tr>
-<tr>
-<td>firefox-esr-i18n-zh-cn</td>
-<td>浏览器</td>
-<td>yay</td>
-<td>firefox浏览器</td>
-</tr>
-</tbody></table>
-<h1 id="CLI-总览"><a href="#CLI-总览" class="headerlink" title="CLI 总览"></a>CLI 总览</h1><table>
-<thead>
-<tr>
-<th>软件名称</th>
-<th>类别</th>
-<th>安装方式</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>系统必备</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>dhcpcd</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>man-pages-zh_cn man-pages-zh_tw</td>
-<td>中文man</td>
-<td>pacman</td>
-<td>这是两个包，都要安装</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+        <h1 id="华为设备开启dhcp服务"><a href="#华为设备开启dhcp服务" class="headerlink" title="华为设备开启dhcp服务"></a>华为设备开启dhcp服务</h1><p><img src="https://picture.tanglx.cn/web/2024/1710146368786.png" alt="enter description here"><br><strong>1.对AR1路由器进行配置</strong></p>
+<pre><code class="routeros?linenums">&lt;AR1&gt;system-view 	//进入系统视图
+[AR1]int GigabitEthernet 0/0/0	//进入接口
+[AR1-GigabitEthernet0/0/0]ip add 192.168.1.1 255.255.255.0   //配置接口ip
+[AR1-GigabitEthernet0/0/0]quit	//退到系统视图
+[AR1]dhcp enable		//开启dhcp服务
+[AR1]int g0/0/0			进入接口
+[AR1-GigabitEthernet0/0/0]dhcp select interface   //指定接口开启dhcp
+</code></pre>
+<p><strong>之后局域网下pc就能获取到ip地址</strong><br><img src="https://picture.tanglx.cn/web/2024/1710146299692.png" alt="enter description here"></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 tanglx@aliyun.com </span>

@@ -6,7 +6,7 @@
   <link href="http://www.tanglx.cn/atom.xml" rel="self"/>
   
   <link href="http://www.tanglx.cn/"/>
-  <updated>2024-03-05T12:21:57.340Z</updated>
+  <updated>2024-03-11T08:42:06.000Z</updated>
   <id>http://www.tanglx.cn/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为设备开启dhcp服务</title>
+    <link href="http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1/</id>
+    <published>2024-03-11T08:27:46.000Z</published>
+    <updated>2024-03-11T08:42:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="华为设备开启dhcp服务"><a href="#华为设备开启dhcp服务" class="headerlink" title="华为设备开启dhcp服务"></a>华为设备开启dhcp服务</h1><p><img src="https://picture.tanglx.cn/web/2024/1710146368786.png" alt="enter description here"><br><strong>1.对AR1路由器进行配置</strong></p><pre><code class="routeros?linenums">&lt;AR1&gt;system-view //进入系统视图[AR1]int GigabitEthernet 0/0/0//进入接口[AR1-GigabitEthernet0/0/0]ip add 192.168.1.1 255.255.255.0   //配置接口ip[AR1-GigabitEthernet0/0/0]quit//退到系统视图[AR1]dhcp enable//开启dhcp服务[AR1]int g0/0/0进入接口[AR1-GigabitEthernet0/0/0]dhcp select interface   //指定接口开启dhcp</code></pre><p><strong>之后局域网下pc就能获取到ip地址</strong><br><img src="https://picture.tanglx.cn/web/2024/1710146299692.png" alt="enter description here"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;华为设备开启dhcp服务&quot;&gt;&lt;a href=&quot;#华为设备开启dhcp服务&quot; class=&quot;headerlink&quot; title=&quot;华为设备开启dhcp服务&quot;&gt;&lt;/a&gt;华为设备开启dhcp服务&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://picture.tang</summary>
+      
+    
+    
+    
+    <category term="网络" scheme="http://www.tanglx.cn/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="网络" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="数通" scheme="http://www.tanglx.cn/tags/%E6%95%B0%E9%80%9A/"/>
+    
+    <category term="华为" scheme="http://www.tanglx.cn/tags/%E5%8D%8E%E4%B8%BA/"/>
+    
+    <category term="命令" scheme="http://www.tanglx.cn/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+    <category term="dhcp" scheme="http://www.tanglx.cn/tags/dhcp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>华为数通命令集</title>
+    <link href="http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E5%91%BD%E4%BB%A4%E9%9B%86/"/>
+    <id>http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E5%91%BD%E4%BB%A4%E9%9B%86/</id>
+    <published>2024-03-11T07:50:50.000Z</published>
+    <updated>2024-03-11T08:27:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="华为数通命令集"><a href="#华为数通命令集" class="headerlink" title="华为数通命令集"></a>华为数通命令集</h1><pre><code>&lt;Huawei&gt;system-view               //进入系统视图[Huawei]int GigabitEthernet 0/0/0  // 进入接口视图[Huawei-GigabitEthernet0/0/0]ip address 192.168.1.1 255.255.255.0 //给接口配置ip[Huawei-GigabitEthernet0/0/0]quit   //退到系统视图[Huawei]ping 192.168.1.2  //网络测试&lt;Huawei&gt;save   //保存配置[Huawei]dhcp enable  //开启dhcp服务[Huawei-GigabitEthernet0/0/0]dhcp select interface   //指定开启dhcp的接口</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;华为数通命令集&quot;&gt;&lt;a href=&quot;#华为数通命令集&quot; class=&quot;headerlink&quot; title=&quot;华为数通命令集&quot;&gt;&lt;/a&gt;华为数通命令集&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;Huawei&amp;gt;system-view            	   	</summary>
+      
+    
+    
+    
+    <category term="网络" scheme="http://www.tanglx.cn/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="网络" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="数通" scheme="http://www.tanglx.cn/tags/%E6%95%B0%E9%80%9A/"/>
+    
+    <category term="华为" scheme="http://www.tanglx.cn/tags/%E5%8D%8E%E4%B8%BA/"/>
+    
+    <category term="命令" scheme="http://www.tanglx.cn/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
   
   <entry>
     <title>manjaro录音降噪</title>
