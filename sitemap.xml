@@ -137,6 +137,13 @@
   </url>
   
   <url>
+    <loc>http://www.tanglx.cn/tags/%E6%95%B0%E9%80%9A/</loc>
+    <lastmod>2024-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.tanglx.cn/tags/%E5%8D%8E%E4%B8%BA/</loc>
     <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -152,13 +159,6 @@
   
   <url>
     <loc>http://www.tanglx.cn/tags/dhcp/</loc>
-    <lastmod>2024-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.tanglx.cn/tags/%E6%95%B0%E9%80%9A/</loc>
     <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
