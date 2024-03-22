@@ -74,27 +74,6 @@
 
   
   <url>
-    <loc>http://www.tanglx.cn/tags/Linux/</loc>
-    <lastmod>2024-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.tanglx.cn/tags/manjaro/</loc>
-    <lastmod>2024-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.tanglx.cn/tags/%E9%99%8D%E5%99%AA/</loc>
-    <lastmod>2024-03-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://www.tanglx.cn/tags/linux/</loc>
     <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -117,6 +96,27 @@
   
   <url>
     <loc>http://www.tanglx.cn/tags/lnmp/</loc>
+    <lastmod>2024-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.tanglx.cn/tags/Linux/</loc>
+    <lastmod>2024-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.tanglx.cn/tags/manjaro/</loc>
+    <lastmod>2024-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.tanglx.cn/tags/%E9%99%8D%E5%99%AA/</loc>
     <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -167,14 +167,14 @@
 
   
   <url>
-    <loc>http://www.tanglx.cn/categories/Linux/</loc>
+    <loc>http://www.tanglx.cn/categories/linux/</loc>
     <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.tanglx.cn/categories/linux/</loc>
+    <loc>http://www.tanglx.cn/categories/Linux/</loc>
     <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
