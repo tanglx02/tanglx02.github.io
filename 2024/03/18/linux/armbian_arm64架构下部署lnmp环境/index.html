@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>about | 汤小汤博客</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="about | 汤小汤博客">
+  <title>armbian_arm64架构下部署lnmp环境 | 汤小汤博客</title>
+  <meta name="keywords" content=" linux , armbian , arm64 , lnmp ">
+  <meta name="description" content="armbian_arm64架构下部署lnmp环境 | 汤小汤博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="页面未找到！">
 <meta property="og:type" content="website">
@@ -404,24 +404,45 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-linux/armbian_arm64架构下部署lnmp环境" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">about</h1>
+        <h1 class="article-title">armbian_arm64架构下部署lnmp环境</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="linux">linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">linux</a>
+            
+            <a class="color3">armbian</a>
+            
+            <a class="color1">arm64</a>
+            
+            <a class="color5">lnmp</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-03-05 20:21:57'>2023-07-17 17:42</time>
+            发布时间 : <time class="date" title='最后更新: 2024-03-18 23:53:28'>2024-03-18 18:44</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:0</span>
+        <span>字数:552</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -451,7 +472,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="toc-text">一、基本设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81mysql%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-text">二、mysql安装与配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81php%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">三、php的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81nginx%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-text">四、nginx安装与配置</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -467,7 +488,87 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="toc-text">一、基本设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81mysql%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-text">二、mysql安装与配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81php%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">三、php的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81nginx%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-text">四、nginx安装与配置</span></a></li></ol></div></p>
+<h1 id="一、基本设置"><a href="#一、基本设置" class="headerlink" title="一、基本设置"></a>一、基本设置</h1><p><strong>1.更新软件源</strong></p>
+<pre><code class="bash">sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+</code></pre>
+<p><strong>2.关闭防火墙</strong></p>
+<pre><code class="bash"> vim /etc/ufw/ufw.conf 	//编辑配置文件
+ENABLED=no			//将内容从yes值改为no
+</code></pre>
+<h1 id="二、mysql安装与配置"><a href="#二、mysql安装与配置" class="headerlink" title="二、mysql安装与配置"></a>二、mysql安装与配置</h1><p><strong>1.安装mysql</strong></p>
+<pre><code class="bash">sudo apt-get install mysql-server
+</code></pre>
+<p><strong>2.启动mysql</strong></p>
+<pre><code class="bash">sudo systemctl start mysql 
+sudo systemctl enable mysql
+</code></pre>
+<p><strong>3.修改mysql密码</strong></p>
+<pre><code class="bash">mysql -u root -p	//登录mysql默认密码为空，直接回车
+use mysql;
+CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;new_password&#39;;  // 创建局域网络账号
+GRANT ALL ON *.* TO &#39;root&#39;@&#39;%&#39; WITH GRANT OPTION; // 分配权限
+ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;new_password&#39;;	//new_password为新密码
+alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &#39;new_password&#39;;  //远程密码
+FLUSH PRIVILEGES;	//刷新权限使更改生效
+EXIT;		//退出mysql
+</code></pre>
+<p><strong>4.mysql修改配置文件开启远程</strong></p>
+<pre><code class="gradle">vim /etc/mysql/mysql.conf.d/mysqld.cnf
+</code></pre>
+<p>修改配置文件，注释掉bind-address &#x3D; 127.0.0.1  和 mysqlx-bind-address    &#x3D; 127.0.0.1</p>
+<p>4.重启mysql</p>
+<pre><code class="maxima">systemctl restart mysql
+</code></pre>
+<h1 id="三、php的安装"><a href="#三、php的安装" class="headerlink" title="三、php的安装"></a>三、php的安装</h1><p><strong>1.安装PHP及所需模块</strong></p>
+<pre><code class="bash">sudo apt-get install php-fpm php-mysql php-common php-mbstring php-xml php-cli php-gd php-curl
+sudo systemctl start php8.1-fpm    //可能和我版本不一样，自查后修改
+sudo systemctl enable php8.1-fpm	//可能和我版本不一样，自查后修改
+</code></pre>
+<h1 id="四、nginx安装与配置"><a href="#四、nginx安装与配置" class="headerlink" title="四、nginx安装与配置"></a>四、nginx安装与配置</h1><p><strong>1.安装nginx并设置开机自启动</strong></p>
+<pre><code class="bash">sudo apt-get install nginx
+systemctl start nginx.service 
+systemctl enable nginx.service 
+</code></pre>
+<p><strong>2.配置Nginx与PHP处理：</strong></p>
+<p> 1)编辑配置文件</p>
+<pre><code class="bash">sudo vim /etc/nginx/sites-available/default
+</code></pre>
+<p>2)在文件中添加以下内容以处理PHP请求：(1.注意需要将内容包含到server{}中2.php*.*版本根据自身安装版本选择)</p>
+<pre><code class="bash">location ~ \.php$ &#123;
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+&#125;
+</code></pre>
+<p>3)之后将index.php 添加到server{}中，将默认识别改文件</p>
+<pre><code class="delphi">index index.php index.html index.htm;
+</code></pre>
+<p>4)测试并重启nginx服务<br>sudo nginx -t<br>sudo systemctl restart nginx</p>
+<p>)其它需要参考模板修改</p>
+<pre><code class="bash">server &#123;
+    listen 80;	
+    server_name example.com;
+    root /var/www/html;
+ 
+    index index.php index.html index.htm;
+    error_log  /var/log/nginx/error.log;
+    access_log /var/log/nginx/access.log;
+ 
+    location / &#123;
+        try_files $uri $uri/ =404;
+    &#125;
+ 
+    location ~ \.php$ &#123;
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock; # 根据PHP版本和配置调整
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    &#125;
+&#125;
+</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 tanglx@aliyun.com </span>
     </div>

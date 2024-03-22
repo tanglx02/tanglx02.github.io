@@ -6,7 +6,7 @@
   <link href="http://www.tanglx.cn/atom.xml" rel="self"/>
   
   <link href="http://www.tanglx.cn/"/>
-  <updated>2024-03-11T09:05:49.000Z</updated>
+  <updated>2024-03-18T15:53:28.000Z</updated>
   <id>http://www.tanglx.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>armbian_arm64架构下部署lnmp环境</title>
+    <link href="http://www.tanglx.cn/2024/03/18/linux/armbian_arm64%E6%9E%B6%E6%9E%84%E4%B8%8B%E9%83%A8%E7%BD%B2lnmp%E7%8E%AF%E5%A2%83/"/>
+    <id>http://www.tanglx.cn/2024/03/18/linux/armbian_arm64%E6%9E%B6%E6%9E%84%E4%B8%8B%E9%83%A8%E7%BD%B2lnmp%E7%8E%AF%E5%A2%83/</id>
+    <published>2024-03-18T10:44:55.000Z</published>
+    <updated>2024-03-18T15:53:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="一、基本设置"><a href="#一、基本设置" class="headerlink" title="一、基本设置"></a>一、基本设置</h1><p><strong>1.更新软件源</strong></p><pre><code class="bash">sudo apt-get updatesudo apt-get upgradesudo apt-get dist-upgrade</code></pre><p><strong>2.关闭防火墙</strong></p><pre><code class="bash"> vim /etc/ufw/ufw.conf //编辑配置文件ENABLED=no//将内容从yes值改为no</code></pre><h1 id="二、mysql安装与配置"><a href="#二、mysql安装与配置" class="headerlink" title="二、mysql安装与配置"></a>二、mysql安装与配置</h1><p><strong>1.安装mysql</strong></p><pre><code class="bash">sudo apt-get install mysql-server</code></pre><p><strong>2.启动mysql</strong></p><pre><code class="bash">sudo systemctl start mysql sudo systemctl enable mysql</code></pre><p><strong>3.修改mysql密码</strong></p><pre><code class="bash">mysql -u root -p//登录mysql默认密码为空，直接回车use mysql;CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;new_password&#39;;  // 创建局域网络账号GRANT ALL ON *.* TO &#39;root&#39;@&#39;%&#39; WITH GRANT OPTION; // 分配权限ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;new_password&#39;;//new_password为新密码alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &#39;new_password&#39;;  //远程密码FLUSH PRIVILEGES;//刷新权限使更改生效EXIT;//退出mysql</code></pre><p><strong>4.mysql修改配置文件开启远程</strong></p><pre><code class="gradle">vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></pre><p>修改配置文件，注释掉bind-address &#x3D; 127.0.0.1  和 mysqlx-bind-address    &#x3D; 127.0.0.1</p><p>4.重启mysql</p><pre><code class="maxima">systemctl restart mysql</code></pre><h1 id="三、php的安装"><a href="#三、php的安装" class="headerlink" title="三、php的安装"></a>三、php的安装</h1><p><strong>1.安装PHP及所需模块</strong></p><pre><code class="bash">sudo apt-get install php-fpm php-mysql php-common php-mbstring php-xml php-cli php-gd php-curlsudo systemctl start php8.1-fpm    //可能和我版本不一样，自查后修改sudo systemctl enable php8.1-fpm//可能和我版本不一样，自查后修改</code></pre><h1 id="四、nginx安装与配置"><a href="#四、nginx安装与配置" class="headerlink" title="四、nginx安装与配置"></a>四、nginx安装与配置</h1><p><strong>1.安装nginx并设置开机自启动</strong></p><pre><code class="bash">sudo apt-get install nginxsystemctl start nginx.service systemctl enable nginx.service </code></pre><p><strong>2.配置Nginx与PHP处理：</strong></p><p> 1)编辑配置文件</p><pre><code class="bash">sudo vim /etc/nginx/sites-available/default</code></pre><p>2)在文件中添加以下内容以处理PHP请求：(1.注意需要将内容包含到server{}中2.php*.*版本根据自身安装版本选择)</p><pre><code class="bash">location ~ \.php$ &#123;    include snippets/fastcgi-php.conf;    fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;&#125;</code></pre><p>3)之后将index.php 添加到server{}中，将默认识别改文件</p><pre><code class="delphi">index index.php index.html index.htm;</code></pre><p>4)测试并重启nginx服务<br>sudo nginx -t<br>sudo systemctl restart nginx</p><p>)其它需要参考模板修改</p><pre><code class="bash">server &#123;    listen 80;    server_name example.com;    root /var/www/html;     index index.php index.html index.htm;    error_log  /var/log/nginx/error.log;    access_log /var/log/nginx/access.log;     location / &#123;        try_files $uri $uri/ =404;    &#125;     location ~ \.php$ &#123;        include snippets/fastcgi-php.conf;        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock; # 根据PHP版本和配置调整        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;        include fastcgi_params;    &#125;&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;一、基本设置&quot;&gt;&lt;a href=&quot;#一、基本设置&quot; class=&quot;headerlink&quot; title=&quot;一、基本设置&quot;&gt;&lt;/a&gt;一、基本设置&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;1.更新软件源&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code c</summary>
+      
+    
+    
+    
+    <category term="linux" scheme="http://www.tanglx.cn/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://www.tanglx.cn/tags/linux/"/>
+    
+    <category term="armbian" scheme="http://www.tanglx.cn/tags/armbian/"/>
+    
+    <category term="arm64" scheme="http://www.tanglx.cn/tags/arm64/"/>
+    
+    <category term="lnmp" scheme="http://www.tanglx.cn/tags/lnmp/"/>
+    
+  </entry>
   
   <entry>
     <title>华为设备开启dhcp服务</title>
@@ -53,14 +85,15 @@
     <link href="http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E5%91%BD%E4%BB%A4%E9%9B%86/"/>
     <id>http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E5%91%BD%E4%BB%A4%E9%9B%86/</id>
     <published>2024-03-11T07:50:50.000Z</published>
-    <updated>2024-03-11T08:27:40.000Z</updated>
+    <updated>2024-03-11T11:30:42.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="华为数通命令集"><a href="#华为数通命令集" class="headerlink" title="华为数通命令集"></a>华为数通命令集</h1><pre><code>&lt;Huawei&gt;system-view               //进入系统视图[Huawei]int GigabitEthernet 0/0/0  // 进入接口视图[Huawei-GigabitEthernet0/0/0]ip address 192.168.1.1 255.255.255.0 //给接口配置ip[Huawei-GigabitEthernet0/0/0]quit   //退到系统视图[Huawei]ping 192.168.1.2  //网络测试&lt;Huawei&gt;save   //保存配置[Huawei]dhcp enable  //开启dhcp服务[Huawei-GigabitEthernet0/0/0]dhcp select interface   //指定开启dhcp的接口</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="华为数通命令集"><a href="#华为数通命令集" class="headerlink" title="华为数通命令集"></a>华为数通命令集</h1><p><strong>基础命令</strong></p><pre><code>&lt;Huawei&gt;system-view               //进入系统视图[Huawei]int GigabitEthernet 0/0/0  // 进入接口视图[Huawei-GigabitEthernet0/0/0]ip address 192.168.1.1 255.255.255.0 //给接口配置ip[Huawei-GigabitEthernet0/0/0]quit   //退到系统视图[Huawei]ping 192.168.1.2  //网络测试&lt;Huawei&gt;save   //保存配置</code></pre><p><strong>DHCP命令</strong></p><blockquote><p>[Huawei]dhcp enable  &#x2F;&#x2F;开启dhcp服务<br>    [Huawei-GigabitEthernet0&#x2F;0&#x2F;0]dhcp select interface   &#x2F;&#x2F;指定开启dhcp的接口</p></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;华为数通命令集&quot;&gt;&lt;a href=&quot;#华为数通命令集&quot; class=&quot;headerlink&quot; title=&quot;华为数通命令集&quot;&gt;&lt;/a&gt;华为数通命令集&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;Huawei&amp;gt;system-view            	   	</summary>
+    <summary type="html">&lt;h1 id=&quot;华为数通命令集&quot;&gt;&lt;a href=&quot;#华为数通命令集&quot; class=&quot;headerlink&quot; title=&quot;华为数通命令集&quot;&gt;&lt;/a&gt;华为数通命令集&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;基础命令&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;Huawei&amp;gt</summary>
       
     
     

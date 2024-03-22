@@ -1,13 +1,18 @@
-http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1/
+http://www.tanglx.cn/2024/03/18/linux/armbian_arm64%E6%9E%B6%E6%9E%84%E4%B8%8B%E9%83%A8%E7%BD%B2lnmp%E7%8E%AF%E5%A2%83/
 http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E5%91%BD%E4%BB%A4%E9%9B%86/
+http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1/
 http://www.tanglx.cn/2023/07/18/linux/manjaro%E5%BD%95%E9%9F%B3%E9%99%8D%E5%99%AA/
 http://www.tanglx.cn/2021/05/31/linux/%E6%88%91%E7%94%A8%E7%9A%84manjaro%E8%BD%AF%E4%BB%B6/
-http://www.tanglx.cn/about/index.html
 http://www.tanglx.cn/404.html
+http://www.tanglx.cn/about/index.html
 http://www.tanglx.cn/
 http://www.tanglx.cn/tags/Linux/
 http://www.tanglx.cn/tags/manjaro/
 http://www.tanglx.cn/tags/%E9%99%8D%E5%99%AA/
+http://www.tanglx.cn/tags/linux/
+http://www.tanglx.cn/tags/armbian/
+http://www.tanglx.cn/tags/arm64/
+http://www.tanglx.cn/tags/lnmp/
 http://www.tanglx.cn/tags/%E8%BD%AF%E4%BB%B6/
 http://www.tanglx.cn/tags/%E7%BD%91%E7%BB%9C/
 http://www.tanglx.cn/tags/%E5%8D%8E%E4%B8%BA/
@@ -15,4 +20,5 @@ http://www.tanglx.cn/tags/%E5%91%BD%E4%BB%A4/
 http://www.tanglx.cn/tags/dhcp/
 http://www.tanglx.cn/tags/%E6%95%B0%E9%80%9A/
 http://www.tanglx.cn/categories/Linux/
+http://www.tanglx.cn/categories/linux/
 http://www.tanglx.cn/categories/%E7%BD%91%E7%BB%9C/

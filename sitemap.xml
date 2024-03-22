@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1/</loc>
+    <loc>http://www.tanglx.cn/2024/03/18/linux/armbian_arm64%E6%9E%B6%E6%9E%84%E4%B8%8B%E9%83%A8%E7%BD%B2lnmp%E7%8E%AF%E5%A2%83/</loc>
+    
+    <lastmod>2024-03-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E5%91%BD%E4%BB%A4%E9%9B%86/</loc>
     
     <lastmod>2024-03-11</lastmod>
     
@@ -11,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E6%95%B0%E9%80%9A%E5%91%BD%E4%BB%A4%E9%9B%86/</loc>
+    <loc>http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1/</loc>
     
     <lastmod>2024-03-11</lastmod>
     
@@ -38,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://www.tanglx.cn/about/index.html</loc>
+    <loc>http://www.tanglx.cn/404.html</loc>
     
     <lastmod>2024-03-05</lastmod>
     
@@ -47,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://www.tanglx.cn/404.html</loc>
+    <loc>http://www.tanglx.cn/about/index.html</loc>
     
     <lastmod>2024-03-05</lastmod>
     
@@ -58,7 +67,7 @@
 
   <url>
     <loc>http://www.tanglx.cn/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -66,63 +75,91 @@
   
   <url>
     <loc>http://www.tanglx.cn/tags/Linux/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.tanglx.cn/tags/manjaro/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.tanglx.cn/tags/%E9%99%8D%E5%99%AA/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.tanglx.cn/tags/linux/</loc>
+    <lastmod>2024-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.tanglx.cn/tags/armbian/</loc>
+    <lastmod>2024-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.tanglx.cn/tags/arm64/</loc>
+    <lastmod>2024-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.tanglx.cn/tags/lnmp/</loc>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.tanglx.cn/tags/%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.tanglx.cn/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.tanglx.cn/tags/%E5%8D%8E%E4%B8%BA/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.tanglx.cn/tags/%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.tanglx.cn/tags/dhcp/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.tanglx.cn/tags/%E6%95%B0%E9%80%9A/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -131,14 +168,21 @@
   
   <url>
     <loc>http://www.tanglx.cn/categories/Linux/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.tanglx.cn/categories/linux/</loc>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.tanglx.cn/categories/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2024-03-11</lastmod>
+    <lastmod>2024-03-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
