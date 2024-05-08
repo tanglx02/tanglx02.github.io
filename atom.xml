@@ -6,7 +6,7 @@
   <link href="http://www.tanglx.cn/atom.xml" rel="self"/>
   
   <link href="http://www.tanglx.cn/"/>
-  <updated>2024-03-18T15:53:28.000Z</updated>
+  <updated>2024-05-08T13:22:14.000Z</updated>
   <id>http://www.tanglx.cn/</id>
   
   <author>
@@ -15,6 +15,394 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基础关键字</title>
+    <link href="http://www.tanglx.cn/2024/05/08/%E5%BC%80%E5%8F%91/%E5%9F%BA%E7%A1%80%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    <id>http://www.tanglx.cn/2024/05/08/%E5%BC%80%E5%8F%91/%E5%9F%BA%E7%A1%80%E5%85%B3%E9%94%AE%E5%AD%97/</id>
+    <published>2024-05-08T13:09:04.000Z</published>
+    <updated>2024-05-08T13:22:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-type"><a href="#1-type" class="headerlink" title="1. type"></a>1. type</h2><p>打印识别变量类型</p><hr><p>例题：</p><pre><code class="routeros">name=&#39;汤龙祥&#39;Age=18Height=1.75print(type(name))print(type(Age))print(type(Height))</code></pre><p>结果：<br>&lt;class ‘str’&gt;<br>&lt;class ‘int’&gt;<br>&lt;class ‘float’&gt;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-type&quot;&gt;&lt;a href=&quot;#1-type&quot; class=&quot;headerlink&quot; title=&quot;1. type&quot;&gt;&lt;/a&gt;1. type&lt;/h2&gt;&lt;p&gt;打印识别变量类型&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;例题：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;route</summary>
+      
+    
+    
+    
+    <category term="开发" scheme="http://www.tanglx.cn/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="开发" scheme="http://www.tanglx.cn/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="python" scheme="http://www.tanglx.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pacman包管理器</title>
+    <link href="http://www.tanglx.cn/2024/04/25/linux/pacman%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/"/>
+    <id>http://www.tanglx.cn/2024/04/25/linux/pacman%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/</id>
+    <published>2024-04-24T16:01:00.000Z</published>
+    <updated>2024-04-24T19:27:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="一、pacman包管理器用法"><a href="#一、pacman包管理器用法" class="headerlink" title="一、pacman包管理器用法"></a>一、pacman包管理器用法</h1><table data-draft-node="block" data-draft-type="table" data-size="normal" data-row-style="normal"><tbody><tr><th>功能</th><th>命令</th></tr><tr><td>安装软件包（组）</td><td># pacman -S 软件包（组）名</td></tr><tr><td>移除软件包</td><td># pacman -R 软件包名</td></tr><tr><td>移除软件包及其未被其他软件包要求的依赖</td><td># pacman -Rs 软件包名</td></tr><tr><td>同步软件数据库并更新系统</td><td># pacman -Syu</td></tr><tr><td>查询软件数据库</td><td>$ pacman -Ss 字符串</td></tr><tr><td>查询文件</td><td># pacman -F 字符串</td></tr></tbody></table><h2 id="1、软件包缓存清理"><a href="#1、软件包缓存清理" class="headerlink" title="1、软件包缓存清理"></a>1、软件包缓存清理</h2><p>使用 pacman 安装和更新软件包时，软件包会下载到 &#x2F;var&#x2F;cache&#x2F;pacman&#x2F;pkg&#x2F; 目录下。久而久之，缓存会占据大量的存储空间。因此，定期清理软件包缓存是必要的。</p><p>请安装 pacman-contrib 软件包，然后开机自动启动 paccache.timer，以便每周自动清理不使用的软件包缓存。</p><pre><code class="shell"># pacman -S pacman-contrib# systemctl enable paccache.timer</code></pre><h2 id="2、pacman-的使用注意事项"><a href="#2、pacman-的使用注意事项" class="headerlink" title="2、pacman 的使用注意事项"></a>2、pacman 的使用注意事项</h2><p>软件包管理是系统维护的一部分。作为管理员，使用计算机的时候一定要负起系统管理员的责任。如果您热爱 Linux 的开放与可定制性，就要有能力遵守 Linux 的维护规则，以免破坏系统。</p><p>使用 pacman 的注意事项如下：</p><ul><li>更新系统前作好准备</li><li>禁止部分更新</li><li>注意更新时的提醒</li><li>定期检查孤立包</li></ul><h3 id="2-1更新系统前作好准备"><a href="#2-1更新系统前作好准备" class="headerlink" title="2.1更新系统前作好准备"></a>2.1更新系统前作好准备</h3><p>我们已经知道，在 Arch Linux 中，系统更新的命令是 pacman -Syu。绝大多数情况下，pacman 可以帮您处理好一切事务，但也有例外。当系统更新无法自动完成，需要用户手动干预时，Arch Linux 主页会定期发布新闻，提供系统更新指南。</p><p>笔者建议您在系统更新之前，前往 Arch Linux 主页 查看最新消息。如果更新需要不寻常的用户操作介入时（无法简单地按照 pacman 的输出信息处理），以上信息总会给出合适的方法。</p><p>此外，有时重要软件包更新时，会引发一些严重的问题，俗称“滚炸了”。查看 Arch Linux 相关论坛和群组，有助于避免这些问题。笔者推荐的论坛和群组如下：</p><ul><li data-pid="OwUakM3t"><a href="https://link.zhihu.com/?target=https%3A//bbs.archlinux.org/" class=" wrap external" target="_blank" rel="nofollow noreferrer" data-za-detail-view-id="1043">Arch Linux 论坛</a></li><li data-pid="Gg4dXLEa"><a href="https://link.zhihu.com/?target=https%3A//bbs.archlinuxcn.org/" class=" wrap external" target="_blank" rel="nofollow noreferrer" data-za-detail-view-id="1043">Arch Linux 中文论坛</a></li><li data-pid="4Yilo-BB"><a href="https://link.zhihu.com/?target=https%3A//www.archlinuxcn.org/archlinuxcn-group-mailling-list/" class=" wrap external" target="_blank" rel="nofollow noreferrer" data-za-detail-view-id="1043">Arch Linux 中文社区交流群</a></li></ul>最后，系统更新出现问题是难以避免的。因此，请不要在重要任务前进行系统更新，而是留出足够的时间用于应付可能的问题。<h3 id="2-2禁止部分更新"><a href="#2-2禁止部分更新" class="headerlink" title="2.2禁止部分更新"></a>2.2禁止部分更新</h3><p><code>pacman -Sy</code> 命令用于下载软件包数据库，但不更新系统中的软件包。这种操作就称为“部分更新”。部分更新是危险的。当您下载软件包数据库（<code>pacman -Sy</code>）之后，如果安装新软件（<code>pacman -S</code>），可能造成依赖关系被破坏。</p><p>很简单，请记住一点：</p><p>不要使用 <code>pacman -Sy</code>，而是使用 <code>pacman -Syu</code>。</p><h3 id="2-3注意更新时的提醒"><a href="#2-3注意更新时的提醒" class="headerlink" title="2.3注意更新时的提醒"></a>2.3注意更新时的提醒</h3><p>当升级系统时， 请一定要注意 pacman 输出的注意信息。 如果有需要用户手动操作的，请一定要立即搞定。 如果不明白 pacman 输出的信息， 请去论坛搜索或者看 Arch Linux 首页的新闻。</p><p>当配置文件发生更新，或者卸载软件包的时候，pacman 可能会生成 pacnew 和 pacsave 文件。这些文件可以用 pacdiff 处理。</p><pre><code class="shell"># pacdiff  # 处理 pacnew 和 pacsave 文件</code></pre><h3 id="2-4定期检查孤立包"><a href="#2-4定期检查孤立包" class="headerlink" title="2.4定期检查孤立包"></a>2.4定期检查孤立包</h3><p>更新系统后，有些软件包不再作为依赖，或者不再属于官方仓库。您可以定期用以下命令清除或查看它们</p><pre><code class="shell"># pacman -Qtdq | pacman -Rns -  # 递归删除孤立软件包及其配置文件$ pacman -Qqd | pacman -Rsu --print -  # 查看循环依赖、额外依赖$ pacman -Qm  # 查看不属于远程仓库的软件包，请注意下面要介绍的 AUR 软件包也包括在其中</code></pre><h2 id="3-软件仓库镜像"><a href="#3-软件仓库镜像" class="headerlink" title="3.软件仓库镜像"></a>3.软件仓库镜像</h2><p>软件仓库镜像（镜像源）是软件仓库的复制品，部署在全球各地，以便于用户获取软件包。我们在安装过程中已经选择了合适的镜像源，但是为了保证镜像源的可用性，需要定期重新设置镜像源。</p><h3 id="3-1官方镜像源列表"><a href="#3-1官方镜像源列表" class="headerlink" title="3.1官方镜像源列表"></a>3.1官方镜像源列表</h3><p>欲查看官方镜像源列表，请查看 <a href="https://archlinux.org/mirrors/status/">这里</a>。笔者十分建议您选择“同步成功的镜像源（Successfully Syncing Mirrors）”。</p><h3 id="3-2手动设置镜像源"><a href="#3-2手动设置镜像源" class="headerlink" title="3.2手动设置镜像源"></a>3.2手动设置镜像源</h3><p>编辑 &#x2F;etc&#x2F;pacman.d&#x2F;mirrorlist 以便手动设置镜像源，将您要使用的镜像源放在“Server &#x3D;”后面即可。</p><pre><code class="asciidoc">$ sudo -e /etc/pacman.d/mirrorlist/etc/pacman.d/mirrorlist------------------------Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch</code></pre><p>设置镜像源之后，使用以下命令刷新本地软件包列表。</p><pre><code class="shell"># pacman -Syyu  # 使用两个“y”，强制刷新软件包列表</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;一、pacman包管理器用法&quot;&gt;&lt;a href=&quot;#一、pacman包管理器用法&quot; class=&quot;headerlink&quot; title=&quot;一、pacman包管理器用法&quot;&gt;&lt;/a&gt;一、pacman包管理器用法&lt;/h1&gt;&lt;table data-</summary>
+      
+    
+    
+    
+    <category term="linux" scheme="http://www.tanglx.cn/categories/linux/"/>
+    
+    
+    <category term="archlinux" scheme="http://www.tanglx.cn/tags/archlinux/"/>
+    
+    <category term="包管理器" scheme="http://www.tanglx.cn/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>archlinux安装后的配置</title>
+    <link href="http://www.tanglx.cn/2024/04/24/linux/archlinux%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>http://www.tanglx.cn/2024/04/24/linux/archlinux%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
+    <published>2024-04-24T15:11:24.000Z</published>
+    <updated>2024-04-24T19:27:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="一、系统配置"><a href="#一、系统配置" class="headerlink" title="一、系统配置"></a>一、系统配置</h1><h2 id="1-创建普通用户"><a href="#1-创建普通用户" class="headerlink" title="1.创建普通用户"></a>1.创建普通用户</h2><p>创建用户tanglx，并加入到wheel组</p><pre><code class="ebnf">useradd -m -G wheel tanglx</code></pre><p>修改密码</p><pre><code class="ebnf">passwd tanglx</code></pre><p>提升权限<br>编辑 &#x2F;etc&#x2F;sudoers，找到#%wheel ALL&#x3D;(ALL:ALL) ALL，取消#号</p><pre><code class="pgsql">%wheel ALL=(ALL:ALL) ALL</code></pre><h2 id="2-设置系统源并更新系统"><a href="#2-设置系统源并更新系统" class="headerlink" title="2.设置系统源并更新系统"></a>2.设置系统源并更新系统</h2><p>安装自动设置源</p><pre><code class="ebnf">sudo pacman -Sy reflector</code></pre><p>设置自动选择源</p><pre><code class="css">reflector -p https -c China --delay 3 --completion-percent 95 --sort rate --save /etc/pacman.d/mirrorlist</code></pre><p>编辑 sudo vim &#x2F;etc&#x2F;pacman.conf ，末尾加入</p><pre><code class="ini">[archlinuxcn]Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</code></pre><p>更新系统</p><pre><code class="ruby">sudo pacman -Syyupacman-key --initpacman-key --populatesudo pacman -S archlinuxcn-keyring</code></pre><p>如果安装archlinuxcn-keying报错</p><pre><code class="javascript">请使用以下命令在本地信任 farseerfc 的 key 。此 key 已随 archlinux-keyring 安装在系统中，只是缺乏信任：sudo pacman-key --lsign-key &quot;farseerfc@archlinux.org&quot;之后继续安装 archlinuxcn-keyring ：sudo pacman -S archlinuxcn-keyring</code></pre><p>再次更新</p><pre><code class="ebnf">sudo pacman -Syyu</code></pre><h2 id="3-安装aur助手"><a href="#3-安装aur助手" class="headerlink" title="3.安装aur助手"></a>3.安装aur助手</h2><p>base-devel编译时候用到的工具</p><pre><code class="ebnf">pacman -S base-devel yay</code></pre><h2 id="4-显卡驱动安装"><a href="#4-显卡驱动安装" class="headerlink" title="4.显卡驱动安装"></a>4.显卡驱动安装</h2><p>****切记如果要装kde环境直接跳过显卡安装环节，否则会报错<br>我的cpu为i5 4590 显卡NVIDIA gt 730，其它显卡参考下面链接修改<br><a href="https://zhuanlan.zhihu.com/p/568981775">https://zhuanlan.zhihu.com/p/568981775</a><br>安装inter核显驱动</p><pre><code class="ebnf">pacman -S mesa vulkan-intel  </code></pre><p>安装NVIDIA独显卡驱动</p><pre><code class="tcl">sudo pacman -S nvidia-open nvidia-settings lib32-nvidia-utils yay -S nvidia-470xx-dkms</code></pre><p>编辑 &#x2F;etc&#x2F;mkinitcpio.conf，从 HOOKS 数组中去掉 kms</p><pre><code class="ini">HOOKS=(... kms ...)  # 请去掉 kms</code></pre><p>重新生成 initramfs</p><pre><code class="ebnf">mkinitcpio -P</code></pre><p>其次，编辑 &#x2F;etc&#x2F;default&#x2F;grub，在 GRUB_CMDLINE_LINUX_DEFAULT 中添加“nvidia_drm.modeset&#x3D;1”。</p><pre><code class="ini">GRUB_CMDLINE_LINUX_DEFAULT=&quot;... nvidia_drm.modeset=1&quot;</code></pre><p>然后重新生成 grub 配置</p><pre><code class="gradle">grub-mkconfig -o /boot/grub/grub.cfg</code></pre><h2 id="5-其它驱动"><a href="#5-其它驱动" class="headerlink" title="5.其它驱动"></a>5.其它驱动</h2><p>如果是amd执行 pacman -S amd-ucode</p><pre><code class="ebnf">pacman -S intel-ucode</code></pre><h2 id="6-安装桌面环境"><a href="#6-安装桌面环境" class="headerlink" title="6.安装桌面环境"></a>6.安装桌面环境</h2><p>字体安装</p><pre><code class="gauss">pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji</code></pre><p>桌面安装<br>目前kde使用最新的plasma，plasma-wayland-session不在使用</p><pre><code class="ebnf">pacman -S xorg plasma kde-applications</code></pre><p>设置窗口管理器开机自启动</p><pre><code class="routeros">systemctl enable sddm.service</code></pre><h2 id="7-输入法安装"><a href="#7-输入法安装" class="headerlink" title="7.输入法安装"></a>7.输入法安装</h2><p>&#x2F;&#x2F;安装小企鹅输入法</p><pre><code class="vim">sudo pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-lua kcm-fcitx5</code></pre><p>安装完成以后配置一下*.xprofile* 文件，终端输入：</p><pre><code class="bash">sudo vim ~/.xprofile</code></pre><p>添加</p><pre><code class="routeros">export INPUT_METHOD=fcitx5export GTK_IM_MODULE=fcitx5export QT_IM_MODULE=fcitx5export XMODIFIERS=@im=fcitx5</code></pre><p>fcitx5中文词库</p><pre><code class="nginx">sudo pacman -S fcitx5-pinyin-zhwiki rime-pinyin-zhwiki fcitx5-pinyin-moegirl-rime</code></pre><p>fcitx5输入语言</p><pre><code class="awk">//中文sudo pacman -S fcitx5-chewing fcitx5-rime fcitx5-chinese-addons //日语sudo pacman -S fcitx5-anthy fcitx5-kkc fcitx5-skk fcitx5-mozc //韩语sudo pacman -S fcitx5-hangul//越南语sudo pacman -S fcitx5-unikey fcitx5-bamboo </code></pre><p>配置 &#x2F;etc&#x2F;environment </p><pre><code class="gradle">sudo vim /etc/environment </code></pre><p>添加</p><pre><code class="routeros">GTK_IM_MODULE=fcitxQT_IM_MODULE=fcitxXMODIFIERS=@im=fcitxSDL_IM_MODULE=fcitxGLFW_IM_MODULE=ibus</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;一、系统配置&quot;&gt;&lt;a href=&quot;#一、系统配置&quot; class=&quot;headerlink&quot; title=&quot;一、系统配置&quot;&gt;&lt;/a&gt;一、系统配置&lt;/h1&gt;&lt;h2 id=&quot;1-创建普通用户&quot;&gt;&lt;a href=&quot;#1-创建普通用户&quot; class=</summary>
+      
+    
+    
+    
+    <category term="linux" scheme="http://www.tanglx.cn/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://www.tanglx.cn/tags/linux/"/>
+    
+    <category term="archlinux" scheme="http://www.tanglx.cn/tags/archlinux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>物理机安装archLinux</title>
+    <link href="http://www.tanglx.cn/2024/04/24/linux/%E7%89%A9%E7%90%86%E6%9C%BA%E5%AE%89%E8%A3%85archLinux/"/>
+    <id>http://www.tanglx.cn/2024/04/24/linux/%E7%89%A9%E7%90%86%E6%9C%BA%E5%AE%89%E8%A3%85archLinux/</id>
+    <published>2024-04-24T13:12:04.000Z</published>
+    <updated>2024-04-24T14:56:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]<br>从官网下载镜像并通过up启动成功联网后</p><h1 id="一、基础配置"><a href="#一、基础配置" class="headerlink" title="一、基础配置"></a>一、基础配置</h1><h2 id="1-设置时间"><a href="#1-设置时间" class="headerlink" title="1.设置时间"></a>1.设置时间</h2><p>查看时间</p><pre><code class="maxima">timedatectl status </code></pre><p>如果时间不对</p><pre><code class="dsconfig">timedatectl set-ntp true  </code></pre><p>如果时区不对</p><pre><code class="dsconfig">timedatectl set-timezone Asia/Shanghai</code></pre><h2 id="2-磁盘分区"><a href="#2-磁盘分区" class="headerlink" title="2.磁盘分区"></a>2.磁盘分区</h2><p>对于 UEFI 需要至少创建三个分区（efi、swap、根）<br><img src="https://picture.tanglx.cn/web/2024/1713970603396.png" alt="enter description here"><br><strong>格式化分区</strong><br>根分区</p><pre><code class="gradle"> mkfs.ext4 /dev/sda3 </code></pre><p>交换分区</p><pre><code class="gradle">mkswap /dev/sda2</code></pre><p>efi分区</p><pre><code class="gradle">mkfs.fat -F 32 /dev/sda1</code></pre><p>lsblk -f 查看是否格式化分区类型成功</p><h2 id="3-挂载分区"><a href="#3-挂载分区" class="headerlink" title="3.挂载分区"></a>3.挂载分区</h2><p> <em>注意：挂载需要遵循一定的顺序，要先挂载根分区。</em><br>根分区</p><pre><code class="bash"> mount /dev/sda3 /mnt</code></pre><p>swap分区</p><pre><code class="gradle"> swapon /dev/sda2</code></pre><p>efi分区</p><pre><code class="gradle"> mount --mkdir /dev/sda1 /mnt/boot</code></pre><h2 id="4-自动设置镜像源"><a href="#4-自动设置镜像源" class="headerlink" title="4.自动设置镜像源"></a>4.自动设置镜像源</h2><pre><code class="css">reflector -p https -c China --delay 3 --completion-percent 95 --sort rate --save /etc/pacman.d/mirrorlist</code></pre><h2 id="5-安装基础包"><a href="#5-安装基础包" class="headerlink" title="5.安装基础包"></a>5.安装基础包</h2><pre><code class="bash">pacstrap -K /mnt base base-devel linux linux-firmware</code></pre><h2 id="6-设置fstab"><a href="#6-设置fstab" class="headerlink" title="6.设置fstab"></a>6.设置fstab</h2><pre><code class="gradle">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></pre><h1 id="一、切换到新系统"><a href="#一、切换到新系统" class="headerlink" title="一、切换到新系统"></a>一、切换到新系统</h1><pre><code class="bash">arch-chroot /mnt</code></pre><h2 id="1-设置时区"><a href="#1-设置时区" class="headerlink" title="1.设置时区"></a>1.设置时区</h2><pre><code class="gradle">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtimehwclock --systohc</code></pre><h2 id="2-设置locale"><a href="#2-设置locale" class="headerlink" title="2.设置locale"></a>2.设置locale</h2><p>安装编辑器和终端字体</p><pre><code class="vim">pacman -S vim terminus-font</code></pre><p>编辑locale，找到#en_US.UTF-8 UTF-8和#zh_CN.UTF-8 UTF-8取消注释</p><pre><code class="gradle">vim /etc/locale.gen</code></pre><pre><code class="subunit">en_US.UTF-8 UTF-8zh_CN.UTF-8 UTF-8</code></pre><p>生成locale</p><pre><code class="ebnf">locale-gen</code></pre><p>设置locale</p><pre><code class="bash">echo &quot;LANG=en_US.UTF-8&quot; &gt; /etc/locale.conf</code></pre><h2 id="3-网络配置"><a href="#3-网络配置" class="headerlink" title="3.网络配置"></a>3.网络配置</h2><p>设置主机名</p><pre><code class="bash">echo &quot;tanglx-arch&quot; &gt; /etc/hostname</code></pre><p>安装网络管理器</p><pre><code class="ebnf">pacman -S networkmanager</code></pre><p>设置开机自启动网络管理器</p><pre><code class="routeros">systemctl enable NetworkManager.service</code></pre><h2 id="4-设置root密码"><a href="#4-设置root密码" class="headerlink" title="4.设置root密码"></a>4.设置root密码</h2><pre><code class="ebnf">passwd</code></pre><h2 id="5-微码"><a href="#5-微码" class="headerlink" title="5.微码"></a>5.微码</h2><p><em>查看您的 CPU 型号。</em></p><pre><code class="gradle">cat /proc/cpuinfo | grep &quot;model name&quot;</code></pre><p>如果是 Intel CPU，安装 intel-ucode。</p><pre><code class="ebnf"> pacman -S intel-ucode</code></pre><p>如果是 AMD CPU，安装 amd-ucode。</p><pre><code class="ebnf"> pacman -S amd-ucode</code></pre><h2 id="6-安装引导加载程序"><a href="#6-安装引导加载程序" class="headerlink" title="6.安装引导加载程序"></a>6.安装引导加载程序</h2><pre><code class="ebnf">pacman -S grub efibootmgr</code></pre><p>安装grub到计算机</p><pre><code class="routeros">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</code></pre><p>如果输出Installation finished. No error reported.表示成功</p><p>最后生成 GRUB 配置，即可</p><pre><code class="gradle">grub-mkconfig -o /boot/grub/grub.cfg</code></pre><h2 id="7-重启"><a href="#7-重启" class="headerlink" title="7.重启"></a>7.重启</h2><p>退出chroot</p><pre><code class="awk">exit</code></pre><p>取消挂载</p><pre><code class="gradle">swapoff /dev/sda2 umount /dev/sda1umount /dev/sda3</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;br&gt;从官网下载镜像并通过up启动成功联网后&lt;/p&gt;
+&lt;h1 id=&quot;一、基础配置&quot;&gt;&lt;a href=&quot;#一、基础配置&quot; class=&quot;headerlink&quot; title=&quot;一、基础配置&quot;&gt;&lt;/a&gt;一、基础配置&lt;/h1&gt;&lt;h2 id=&quot;1-设置时间&quot;&gt;&lt;a hr</summary>
+      
+    
+    
+    
+    <category term="linux" scheme="http://www.tanglx.cn/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://www.tanglx.cn/tags/linux/"/>
+    
+    <category term="archlinux" scheme="http://www.tanglx.cn/tags/archlinux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python基础语法</title>
+    <link href="http://www.tanglx.cn/2024/04/24/%E5%BC%80%E5%8F%91/python%E8%AF%AD%E6%B3%95/"/>
+    <id>http://www.tanglx.cn/2024/04/24/%E5%BC%80%E5%8F%91/python%E8%AF%AD%E6%B3%95/</id>
+    <published>2024-04-24T01:32:16.000Z</published>
+    <updated>2024-05-08T13:47:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><h2 id="一、注释"><a href="#一、注释" class="headerlink" title="一、注释"></a>一、注释</h2><p>注释的作用</p><blockquote><p>解释代码<br>提示代码顺序<br>记录修改代码<br>暂时禁用代码块</p></blockquote><p>1.加入#号注释</p><pre><code>#print(&quot;注释&quot;)</code></pre><p>2.快速注释 选中 ctrl+？</p><pre><code>#print(&quot;注释&quot;)#print(&quot;注释&quot;)</code></pre><p>3.多行注释</p><pre><code>&quot;&quot;&quot;print(&quot;注释&quot;)print(&quot;注释&quot;)print(&quot;注释&quot;)&quot;&quot;&quot;</code></pre><h2 id="二、变量"><a href="#二、变量" class="headerlink" title="二、变量"></a>二、变量</h2><p><strong>变量的赋值</strong><br><em>普通字符需要使用双引号<br>数字不需要使用双引号，否则不能计算</em></p><pre><code class="ini">age=22 #数字类型name=&quot;汤lx&quot;#普通类型namne2=&quot;&quot;&quot;汤lx&quot;&quot;&quot;#三引号可以多行写变量</code></pre><p>注意事项：</p><ul><li>不能用数字开头</li><li>不能使用内置关键字作为变量</li><li>区分大小写</li></ul><p><strong>字符串的引号嵌用</strong></p><ul><li>单引号定依法，可以内含双引号</li><li>双引号定依法，可以内含单引号</li><li>可以使用转移字符()来解除效用，变成普通字符串</li></ul><h2 id="三、数据类型"><a href="#三、数据类型" class="headerlink" title="三、数据类型"></a>三、数据类型</h2><p>计算机中需要处理各种各样的数据，不同的数据，需要定义不同的数据类型</p><blockquote><p>整型浮点型字符型布尔型空</p></blockquote><ul><li><p>整型(int)<br>例如：0，100，-8080，0</p></li><li><p>浮点型(float)<br>注意：整数和浮点数的存储方式不同，浮点运算时可能会产生一点误差。</p></li><li><p>字符型(str)<br>定义字符型要用单引号或者双引号<br>例如：’abc’ “xyz”</p></li><li><p>布尔型(bool)<br>布尔值用于真假的判断，一个布尔值只有True，False两种值；<br>在Python中，可以直接用True，False表示布尔值（注意大小写）也可以表示式计算。</p></li><li><p>空(None)<br>空值表示什么也没有。<br>Nono不能理解为0，因为0是有意义的，，而None是一个特殊的空值。</p></li></ul><h2 id="四、字符串的拼接"><a href="#四、字符串的拼接" class="headerlink" title="四、字符串的拼接"></a>四、字符串的拼接</h2><p>拼接字符常用的两种方法</p><ul><li>1、使用+号拼接</li><li>2、使用拼接函数</li><li>3、</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;基础语法&quot;&gt;&lt;a href=&quot;#基础语法&quot; class=&quot;headerlink&quot; title=&quot;基础语法&quot;&gt;&lt;/a&gt;基础语法&lt;/h1&gt;&lt;h2 id=&quot;一、注释&quot;&gt;&lt;a href=&quot;#一、注释&quot; class=&quot;headerlink&quot; tit</summary>
+      
+    
+    
+    
+    <category term="开发" scheme="http://www.tanglx.cn/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="开发" scheme="http://www.tanglx.cn/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="python" scheme="http://www.tanglx.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>代码格式规范</title>
+    <link href="http://www.tanglx.cn/2024/04/24/%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E8%A7%84%E8%8C%83/"/>
+    <id>http://www.tanglx.cn/2024/04/24/%E5%BC%80%E5%8F%91/%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E8%A7%84%E8%8C%83/</id>
+    <published>2024-04-24T01:30:17.000Z</published>
+    <updated>2024-04-25T19:28:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="代码格式规范"><a href="#代码格式规范" class="headerlink" title="代码格式规范"></a>代码格式规范</h1><p>1.代码需要先保存，在执行</p><p>2.一句代码单独占一行</p><p>3.语法中的符号必须使用英文</p><p>4.代码前不要有多余的空格</p><p>5.文件名不要使用数字开头，避免一些特殊符号</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;代码格式规范&quot;&gt;&lt;a href=&quot;#代码格式规范&quot; class=&quot;headerlink&quot; title=&quot;代码格式规范&quot;&gt;&lt;/a&gt;代码格式规范&lt;/h1&gt;&lt;p&gt;1.代码需要先保存，在执行&lt;/p&gt;
+&lt;p&gt;2.一句代码单独占一行&lt;/p&gt;
+&lt;p&gt;3.语法中的符号必须使用英文</summary>
+      
+    
+    
+    
+    <category term="开发" scheme="http://www.tanglx.cn/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="开发" scheme="http://www.tanglx.cn/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="python" scheme="http://www.tanglx.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows程序卸载面板移除</title>
+    <link href="http://www.tanglx.cn/2024/04/16/%E6%8A%98%E8%85%BE/windows%E7%A8%8B%E5%BA%8F%E5%8D%B8%E8%BD%BD%E9%9D%A2%E6%9D%BF%E7%A7%BB%E9%99%A4/"/>
+    <id>http://www.tanglx.cn/2024/04/16/%E6%8A%98%E8%85%BE/windows%E7%A8%8B%E5%BA%8F%E5%8D%B8%E8%BD%BD%E9%9D%A2%E6%9D%BF%E7%A7%BB%E9%99%A4/</id>
+    <published>2024-04-16T01:39:18.000Z</published>
+    <updated>2024-04-16T01:46:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Windows安装程序后能从控制面板中的卸载找到卸载入口，其实就是通过注册表写入对应键</p><pre><code class="moonscript">计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall</code></pre><p>安装面板的程序卸载键都在注册表下的Uninstall里面</p><blockquote><p>可以利用删除注册表键实现<br>1.公司安装软件监控系统，逃避检测</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Windows安装程序后能从控制面板中的卸载找到卸载入口，其实就是通过注册表写入对应键&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;moonscript&quot;&gt;计算机&#92;HKEY_LOCAL_MACHINE&#92;SOFTWARE&#92;Microsoft&#92;Windows&#92;CurrentVe</summary>
+      
+    
+    
+    
+    <category term="折腾" scheme="http://www.tanglx.cn/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+    <category term="windows" scheme="http://www.tanglx.cn/tags/windows/"/>
+    
+    <category term="折腾" scheme="http://www.tanglx.cn/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nessus漏扫分析工具</title>
+    <link href="http://www.tanglx.cn/2024/04/10/%E7%BD%91%E5%AE%89/nessus%E6%BC%8F%E6%89%AB%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/"/>
+    <id>http://www.tanglx.cn/2024/04/10/%E7%BD%91%E5%AE%89/nessus%E6%BC%8F%E6%89%AB%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/</id>
+    <published>2024-04-10T08:45:21.000Z</published>
+    <updated>2024-04-10T08:47:33.000Z</updated>
+    
+    
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E5%AE%89/"/>
+    
+    <category term="扫描" scheme="http://www.tanglx.cn/tags/%E6%89%AB%E6%8F%8F/"/>
+    
+    <category term="nessus" scheme="http://www.tanglx.cn/tags/nessus/"/>
+    
+    <category term="工具" scheme="http://www.tanglx.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nmap扫描器</title>
+    <link href="http://www.tanglx.cn/2024/04/09/%E7%BD%91%E5%AE%89/nmap%E6%89%AB%E6%8F%8F%E5%99%A8/"/>
+    <id>http://www.tanglx.cn/2024/04/09/%E7%BD%91%E5%AE%89/nmap%E6%89%AB%E6%8F%8F%E5%99%A8/</id>
+    <published>2024-04-09T02:42:38.000Z</published>
+    <updated>2024-04-10T08:36:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="一、基础扫描"><a href="#一、基础扫描" class="headerlink" title="一、基础扫描"></a>一、基础扫描</h1><h2 id="1-扫描IP"><a href="#1-扫描IP" class="headerlink" title="1.扫描IP"></a>1.扫描IP</h2><pre><code class="shell">nmap -sn 192.168.116.0/24 192.168.116.1-255</code></pre><h2 id="2-扫描端口"><a href="#2-扫描端口" class="headerlink" title="2.扫描端口"></a>2.扫描端口</h2><p>基于SYN包扫描：</p><pre><code class="shell">nmap -sS 192.168.116.101</code></pre><p>基于三次握手扫描:</p><pre><code class="shell">nmap -sT 192.168.116.101</code></pre><h2 id="3-指定端口扫描"><a href="#3-指定端口扫描" class="headerlink" title="3.指定端口扫描"></a>3.指定端口扫描</h2><p>指定范围内端口</p><pre><code class="shell">nmap -p 10-200 192.168.116.101</code></pre><p>指定多个端口</p><pre><code class="shell">nmap -p 21,22,25,80,445,3306,8080,8888 192.168.116.101</code></pre><p>指定所有端口</p><pre><code class="shell">nmap -p * 192.168.116.101</code></pre><h2 id="4-扫描端口和版本"><a href="#4-扫描端口和版本" class="headerlink" title="4.扫描端口和版本"></a>4.扫描端口和版本</h2><pre><code class="shell">nmap -sV 192.168.116.101</code></pre><h2 id="5-扫描操作系统"><a href="#5-扫描操作系统" class="headerlink" title="5.扫描操作系统"></a>5.扫描操作系统</h2><pre><code class="shell">sudo nmap -O 192.168.116.101</code></pre><h2 id="6-全面扫描"><a href="#6-全面扫描" class="headerlink" title="6.全面扫描"></a>6.全面扫描</h2><pre><code class="shell">nmap -A 192.168.116.101</code></pre><h1 id="二、内置脚本扫描"><a href="#二、内置脚本扫描" class="headerlink" title="二、内置脚本扫描"></a>二、内置脚本扫描</h1><p>所有扫描脚本都在kali目录下的 &#x2F;usr&#x2F;share&#x2F;nmap&#x2F;scripts，具体用法参考<a href="https://nmap.org/nsedoc/">nse官方文档</a><br>1.常见端口的漏洞扫描</p><pre><code class="shell">nmap --script=vuln 192.168.116.101</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;一、基础扫描&quot;&gt;&lt;a href=&quot;#一、基础扫描&quot; class=&quot;headerlink&quot; title=&quot;一、基础扫描&quot;&gt;&lt;/a&gt;一、基础扫描&lt;/h1&gt;&lt;h2 id=&quot;1-扫描IP&quot;&gt;&lt;a href=&quot;#1-扫描IP&quot; class=&quot;hea</summary>
+      
+    
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E5%AE%89/"/>
+    
+    <category term="扫描" scheme="http://www.tanglx.cn/tags/%E6%89%AB%E6%8F%8F/"/>
+    
+    <category term="工具" scheme="http://www.tanglx.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="namp" scheme="http://www.tanglx.cn/tags/namp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>提取和内网穿透工具</title>
+    <link href="http://www.tanglx.cn/2024/04/09/%E7%BD%91%E5%AE%89/%E6%8F%90%E5%8F%96%E5%92%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%B7%A5%E5%85%B7/"/>
+    <id>http://www.tanglx.cn/2024/04/09/%E7%BD%91%E5%AE%89/%E6%8F%90%E5%8F%96%E5%92%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%B7%A5%E5%85%B7/</id>
+    <published>2024-04-09T02:13:03.000Z</published>
+    <updated>2024-04-09T02:17:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="一、权限提升"><a href="#一、权限提升" class="headerlink" title="一、权限提升:"></a>一、权限提升:</h1><h2 id="1-MSF"><a href="#1-MSF" class="headerlink" title="1.MSF"></a>1.MSF</h2><h2 id="二、内网渗透"><a href="#二、内网渗透" class="headerlink" title="二、内网渗透:"></a>二、内网渗透:</h2><h2 id="1-Cobalt-Strike"><a href="#1-Cobalt-Strike" class="headerlink" title="1.Cobalt Strike"></a>1.Cobalt Strike</h2><h2 id="2-Ladon"><a href="#2-Ladon" class="headerlink" title="2.Ladon"></a>2.Ladon</h2><h2 id="3-PSTools"><a href="#3-PSTools" class="headerlink" title="3.PSTools"></a>3.PSTools</h2><h2 id="三、内网穿透"><a href="#三、内网穿透" class="headerlink" title="三、内网穿透:"></a>三、内网穿透:</h2><h2 id="1-Frp"><a href="#1-Frp" class="headerlink" title="1.Frp"></a>1.Frp</h2><h2 id="2-冰蝎"><a href="#2-冰蝎" class="headerlink" title="2.冰蝎"></a>2.冰蝎</h2><h2 id="3-Cobalt-Strike"><a href="#3-Cobalt-Strike" class="headerlink" title="3.Cobalt Strike"></a>3.Cobalt Strike</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;一、权限提升&quot;&gt;&lt;a href=&quot;#一、权限提升&quot; class=&quot;headerlink&quot; title=&quot;一、权限提升:&quot;&gt;&lt;/a&gt;一、权限提升:&lt;/h1&gt;&lt;h2 id=&quot;1-MSF&quot;&gt;&lt;a href=&quot;#1-MSF&quot; class=&quot;hea</summary>
+      
+    
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E5%AE%89/"/>
+    
+    <category term="工具" scheme="http://www.tanglx.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="渗透" scheme="http://www.tanglx.cn/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透思路</title>
+    <link href="http://www.tanglx.cn/2024/04/07/%E7%BD%91%E5%AE%89/%E6%B8%97%E9%80%8F%E6%80%9D%E8%B7%AF/"/>
+    <id>http://www.tanglx.cn/2024/04/07/%E7%BD%91%E5%AE%89/%E6%B8%97%E9%80%8F%E6%80%9D%E8%B7%AF/</id>
+    <published>2024-04-07T09:55:30.000Z</published>
+    <updated>2024-04-09T02:12:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="一、信息搜集"><a href="#一、信息搜集" class="headerlink" title="一、信息搜集"></a>一、信息搜集</h1><h2 id="1、主机扫描"><a href="#1、主机扫描" class="headerlink" title="1、主机扫描"></a>1、主机扫描</h2><p>(1)扫描某个网段内存在的主机<br>(2)扫描主机开放的端口和服务<br>(3)扫描主机的操作系统和版本号<br>(4)扫描主机可能存在的已知漏洞</p><h2 id="2、Web扫描"><a href="#2、Web扫描" class="headerlink" title="2、Web扫描"></a>2、Web扫描</h2><p>(1)查询域名和子域名信息<br>(2)查询whoid信息<br>(3)扫描Web应用的URL路径<br>(4)扫描Web应用后台管理入口<br>(5)常规漏洞扫描</p><h2 id="3、功能分析"><a href="#3、功能分析" class="headerlink" title="3、功能分析"></a>3、功能分析</h2><p>(1)分析前台页面的登录注册功能<br>(2)根据用户注册提示确定可用账号<br>(3)尝试进行注册并登录，确认各项功能<br>(4)确定前台页面的URL跳转、用户评论、文件引用、文件上传、文件下载等强交互功能点<br>(5)确定后台是否存在文件上传、查询功能、命令功能、系统配置等<br>(6)确定用户是否存在密码重置功能，确认是否存在逻辑漏洞</p><h2 id="4、抓包分析"><a href="#4、抓包分析" class="headerlink" title="4、抓包分析"></a>4、抓包分析</h2><p>(1)对前端页面的源代码进行分析，确认是否存在敏感信息或接口<br>(2)对关键功能进行抓包分析，预判后台基本实现逻辑<br>(3)对系统功能交互过程的编码和加密进行分析，如是香使用Base64编码、时间截、Hash(4)对通信过程的Sesslon和Cookle进行分析，判断为什么此处要这么用</p><h2 id="5、使用的工具"><a href="#5、使用的工具" class="headerlink" title="5、使用的工具"></a>5、使用的工具</h2><p>(1)主机扫描:NMap、Nessus<br>(2)Web扫描:XRay+Rad、AWs、AppScan、SQLMap、XSStrike、dirb、御剑等<br>(3)在线搜集:zoomeye.org、fofa.so、shodan.io、微步、城名注册南如万网等</p><h1 id="二、漏洞利用"><a href="#二、漏洞利用" class="headerlink" title="二、漏洞利用"></a>二、漏洞利用</h1><h2 id="1、已知exp使用"><a href="#1、已知exp使用" class="headerlink" title="1、已知exp使用"></a>1、已知exp使用</h2><p>根据信息搜集结果，直接网上寻找对应开发框架或CMS的成熟漏洞利用工具，如struts2的全家桶</p><h2 id="2、暴力破解"><a href="#2、暴力破解" class="headerlink" title="2、暴力破解"></a>2、暴力破解</h2><p>适用于验证码可绕过，使用top1000等各类字典，也可以根据搜集到的密码规则匹配相应账号使用hashcat自行创建字典。burpsuite的赛力破解模块也提供了多样化的字典生成功能。或使用专有工具如Hydra、SNetCracker等，或根据业务需要自己编写Python脚本，</p><h2 id="3、逻辑漏洞"><a href="#3、逻辑漏洞" class="headerlink" title="3、逻辑漏洞"></a>3、逻辑漏洞</h2><p>尤其是密码重置，很关键，根据经验来看，至少可从七个方面攻击密码找回功能:重置凭证接收端可篇改、重置凭证泄漏、重置凭证未校验、重置凭证可暴破、用户混淆、应答中存在影响后续逻辑的状态参数、token 可预测。在逻辑漏洞的找寻中，重点观察跟你用户名有关的请求，尝试在各种请求中将你的用户名或身份认证替换成他人的。</p><h2 id="4、JS信息泄露"><a href="#4、JS信息泄露" class="headerlink" title="4、JS信息泄露"></a>4、JS信息泄露</h2><p>一般内部系统的网站JS可能会存有用户接口，我们可以通过接口发现用户信息。也可以分析JS的代码，构造出后台路径和参数逻辑。</p><h2 id="5、后台WEB漏洞"><a href="#5、后台WEB漏洞" class="headerlink" title="5、后台WEB漏洞"></a>5、后台WEB漏洞</h2><p>除了在信息搜集中提到的上传功能(上传webshell)、查询功能(sql注入)、命令功能(命令注入)外，其他web安全漏洞都最好根据功能逐一尝试。</p><h2 id="6、代码审计"><a href="#6、代码审计" class="headerlink" title="6、代码审计"></a>6、代码审计</h2><p>如果拿到源码，可以根据审计结果构造payload</p><h2 id="7、使用到的工具"><a href="#7、使用到的工具" class="headerlink" title="7、使用到的工具"></a>7、使用到的工具</h2><p>(1)渗透测试:Hydra，Medusa、MetaSploit Framework、反序列化工具、各类专项工具<br>(2)代码审计:RIPS、Fortify SCA<br>(3)Shell管理:菜刀、冰蝎、蚁剑、哥斯拉、PSTool等</p><h1 id="三、建立据点"><a href="#三、建立据点" class="headerlink" title="三、建立据点"></a>三、建立据点</h1><h2 id="1、反弹shell"><a href="#1、反弹shell" class="headerlink" title="1、反弹shell"></a>1、反弹shell</h2><p>漏洞利用成功时，通常会在目标机上获得一个webshell，但是webshell虽然能执行命令和管理文件，但毕竟不是真正的shell，而且也不稳定，因此就需要反弹shell到一个稳定的环境中。</p><h2 id="2、反弹shell时候可能遇到的问题"><a href="#2、反弹shell时候可能遇到的问题" class="headerlink" title="2、反弹shell时候可能遇到的问题"></a>2、反弹shell时候可能遇到的问题</h2><p>反弹命令不存在、禁止出口流量、限定向外访问端口、流是审查<br>(1)反弹命令不存在：命令有很多，常用命令有nc&#x2F;nc.openbsd&#x2F;nc.traditional、bash&#x2F;sh&#x2F;dash、python&#x2F;perl&#x2F;PHP&#x2F;ruby、exec，因此命令不存在的概率很小;在服务器上使用’whereis nc bash php perl python ruby’就能知道命令是否存在;</p><p>(2)禁止出口流量：某些目标在防火墙上限制了出口流量，禁止目标主动向外发起网络请求，可以通过带外(Out OfBand)的方式进行验证。大致逻辑是，在攻击者自己的 VPS 上监测某种协议的网络请求，在目标上用这种协议访问 VPS，若在 VPS上看到该协议的请求日志，则可推断出目标允许出口流量;</p><p>(3)限定向外访问端口:某些目标限定访问外部端口，常见黑名单和白名单两种方式。黑名单，比如，禁止目标机器向外访问 MSF 默认的 4444 端口；白名单，比如，只允许向外访问 web 常见的 80 端口、黑名单的情况好绕过，随便指定一个端口号就行，白名单的话就只能探测可允许端口，常见就是80和443,需要想办法利用。</p><p>(4)流量审查：目标环境会对所有流星进行检查，检查的时候会发现流量中的恶意代码信息，这种情况可以结合上面的443端口，使用攻击者的VPS创建sS证书公钥&#x2F;私钥对，VPS开启openssl监听，然后使用openssl对反弹shell的流量进行加密，这样就能防止流量审查反弹成功。</p><h2 id="3、确认环境并制作木马"><a href="#3、确认环境并制作木马" class="headerlink" title="3、确认环境并制作木马"></a>3、确认环境并制作木马</h2><p>(1)确认具体的操作系统版本和已经安装的服务，可以运行的脚本环境，可以通过的端口等(具体根据权限而定)<br>(2)根据当前环境，按照需要制作复杂木马，甚至想办法保持连接的稳定，不被防火墙和管理员发现和封锁等。</p><h2 id="4、使用的工具"><a href="#4、使用的工具" class="headerlink" title="4、使用的工具:"></a>4、使用的工具:</h2><p>MetaSploit Framework、 cobalt Strike等</p><h1 id="四、权限提升和内网渗透"><a href="#四、权限提升和内网渗透" class="headerlink" title="四、权限提升和内网渗透"></a>四、权限提升和内网渗透</h1><h2 id="1、权限提升"><a href="#1、权限提升" class="headerlink" title="1、权限提升"></a>1、权限提升</h2><p>Webshell中的90%都是www-data权限，需要想尽办法提升至root权限，可以用的办法有利用内核栈溢出提权、搜寻配置文件中的明文密码、环境变量劫持高权限程序、不安全的服务、借助权能(POSIX capabilities)提权、sudo 误配、SUID 滥用等等。这些可以查阅网上相关资料和方法，下载对应的exp完成。</p><h2 id="2、权限维持"><a href="#2、权限维持" class="headerlink" title="2、权限维持"></a>2、权限维持</h2><p>在获取了超级管理员权限后，还得想办法要将权限维持住</p><h2 id="3、内网穿透"><a href="#3、内网穿透" class="headerlink" title="3、内网穿透"></a>3、内网穿透</h2><p>在后渗透阶段，攻击进入一台目标主机是远远不够的，还需要通过内网横向移动来完成对核心目标的访问和渗透，此时通过内网穿透保持一个可靠连接，随时可以通过穿透功能进入目标主机。这一过程同样需要注意如何规避防病毒软件或防火墙的发现。</p><h2 id="4、内网渗透"><a href="#4、内网渗透" class="headerlink" title="4、内网渗透"></a>4、内网渗透</h2><p>当能够保持超级管理员的权限并进行维持后，此时便可以开展内网渗透工作，整体过程与外网渗透比较类似，但是面临 的实际情况并不完全一样，需要借助各类工具和经验进行处理，作为渗透测试的工作而非红方攻击来说，内网渗透并非最必要的一步，但是可以一试，进步确定目标主机的漏洞及影响范围。</p><h2 id="5、使用的工具-1"><a href="#5、使用的工具-1" class="headerlink" title="5、使用的工具"></a>5、使用的工具</h2><p>(1)权限提升:MSF、漏扫、各类专项渗透工具等<br>(2)内网渗透:Cobalt Strike、Ladon、PSTools等<br>(3)内网穿透:Frp、冰蝎、Cobalt Strike、代理等</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;一、信息搜集&quot;&gt;&lt;a href=&quot;#一、信息搜集&quot; class=&quot;headerlink&quot; title=&quot;一、信息搜集&quot;&gt;&lt;/a&gt;一、信息搜集&lt;/h1&gt;&lt;h2 id=&quot;1、主机扫描&quot;&gt;&lt;a href=&quot;#1、主机扫描&quot; class=&quot;hea</summary>
+      
+    
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E5%AE%89/"/>
+    
+    <category term="渗透" scheme="http://www.tanglx.cn/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>建立据点工具</title>
+    <link href="http://www.tanglx.cn/2024/04/07/%E7%BD%91%E5%AE%89/%E5%BB%BA%E7%AB%8B%E6%8D%AE%E7%82%B9%E5%B7%A5%E5%85%B7/"/>
+    <id>http://www.tanglx.cn/2024/04/07/%E7%BD%91%E5%AE%89/%E5%BB%BA%E7%AB%8B%E6%8D%AE%E7%82%B9%E5%B7%A5%E5%85%B7/</id>
+    <published>2024-04-07T09:49:00.000Z</published>
+    <updated>2024-04-07T09:56:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-MetaSploit-Framework"><a href="#1-MetaSploit-Framework" class="headerlink" title="1.MetaSploit Framework"></a>1.MetaSploit Framework</h2><h2 id="2-Cobalt-Strike"><a href="#2-Cobalt-Strike" class="headerlink" title="2.Cobalt Strike"></a>2.Cobalt Strike</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-MetaSploit-Framework&quot;&gt;&lt;a href=&quot;#1-MetaSploit-Framework&quot; class=&quot;headerlink&quot; title=&quot;1.MetaSploit Framework&quot;&gt;&lt;/a&gt;1.MetaSploit Framewo</summary>
+      
+    
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E5%AE%89/"/>
+    
+    <category term="工具" scheme="http://www.tanglx.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="渗透" scheme="http://www.tanglx.cn/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>漏洞利用工具</title>
+    <link href="http://www.tanglx.cn/2024/04/07/%E7%BD%91%E5%AE%89/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    <id>http://www.tanglx.cn/2024/04/07/%E7%BD%91%E5%AE%89/%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7/</id>
+    <published>2024-04-07T09:25:51.000Z</published>
+    <updated>2024-04-07T09:56:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="一、渗透测试"><a href="#一、渗透测试" class="headerlink" title="一、渗透测试"></a>一、渗透测试</h1><h2 id="1-Hydra"><a href="#1-Hydra" class="headerlink" title="1.Hydra"></a>1.Hydra</h2><h2 id="2-Medusa"><a href="#2-Medusa" class="headerlink" title="2.Medusa"></a>2.Medusa</h2><h2 id="3-MetaSploit-Framework"><a href="#3-MetaSploit-Framework" class="headerlink" title="3.MetaSploit Framework"></a>3.MetaSploit Framework</h2><h2 id="4-反序列化工具"><a href="#4-反序列化工具" class="headerlink" title="4.反序列化工具"></a>4.反序列化工具</h2><h1 id="二、代码审计"><a href="#二、代码审计" class="headerlink" title="二、代码审计"></a>二、代码审计</h1><h2 id="1-RIPS"><a href="#1-RIPS" class="headerlink" title="1.RIPS"></a>1.RIPS</h2><h2 id="2-Fortify-SCA"><a href="#2-Fortify-SCA" class="headerlink" title="2.Fortify SCA"></a>2.Fortify SCA</h2><h1 id="三、shell管理"><a href="#三、shell管理" class="headerlink" title="三、shell管理"></a>三、shell管理</h1><h2 id="1-菜刀"><a href="#1-菜刀" class="headerlink" title="1.菜刀"></a>1.菜刀</h2><h2 id="2-冰蝎"><a href="#2-冰蝎" class="headerlink" title="2.冰蝎"></a>2.冰蝎</h2><h2 id="3-蚁剑"><a href="#3-蚁剑" class="headerlink" title="3.蚁剑"></a>3.蚁剑</h2><h2 id="4-哥斯拉"><a href="#4-哥斯拉" class="headerlink" title="4.哥斯拉"></a>4.哥斯拉</h2><h2 id="5-PSTool"><a href="#5-PSTool" class="headerlink" title="5.PSTool"></a>5.PSTool</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;一、渗透测试&quot;&gt;&lt;a href=&quot;#一、渗透测试&quot; class=&quot;headerlink&quot; title=&quot;一、渗透测试&quot;&gt;&lt;/a&gt;一、渗透测试&lt;/h1&gt;&lt;h2 id=&quot;1-Hydra&quot;&gt;&lt;a href=&quot;#1-Hydra&quot; class=&quot;h</summary>
+      
+    
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E5%AE%89/"/>
+    
+    <category term="工具" scheme="http://www.tanglx.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="渗透" scheme="http://www.tanglx.cn/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网安扫描工具</title>
+    <link href="http://www.tanglx.cn/2024/04/07/%E7%BD%91%E5%AE%89/%E7%BD%91%E5%AE%89%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7/"/>
+    <id>http://www.tanglx.cn/2024/04/07/%E7%BD%91%E5%AE%89/%E7%BD%91%E5%AE%89%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7/</id>
+    <published>2024-04-07T08:54:32.000Z</published>
+    <updated>2024-04-07T09:56:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><h1 id="一、主机扫描"><a href="#一、主机扫描" class="headerlink" title="一、主机扫描"></a>一、主机扫描</h1><h2 id="1-nmap"><a href="#1-nmap" class="headerlink" title="1.nmap"></a>1.nmap</h2><pre><code class="javascript"> 主机发现、端口扫描、操作系统识别、配置和脚本检测</code></pre><p> <strong>下载链接</strong><br><a href="https://www.123pan.com/s/4DttVv-rJGov.html%E6%8F%90%E5%8F%96%E7%A0%81:ZxoB">123网盘-windows版本</a><br><a href="https://nmap.org/download.html">官网下载</a></p><h2 id="2-Nessus"><a href="#2-Nessus" class="headerlink" title="2.Nessus"></a>2.Nessus</h2><pre><code class="nginx">Nessus 是一款漏洞扫描与分析软件，其中漏洞库包含了数千种常见和已知的漏洞，可以对操作系统、网络设备、数据库、Web 应用程序等进行全面的扫描。通过使用预定义的合规性模板，Nessus能够自动检查目标系统是否符合相应的合规性要求，并生成相应的报告</code></pre><h1 id="二、web扫描"><a href="#二、web扫描" class="headerlink" title="二、web扫描"></a>二、web扫描</h1><h2 id="1-XRay-Rad"><a href="#1-XRay-Rad" class="headerlink" title="1.XRay+Rad"></a>1.XRay+Rad</h2><h2 id="2-AVWS"><a href="#2-AVWS" class="headerlink" title="2.AVWS"></a>2.AVWS</h2><h2 id="3-AppScan"><a href="#3-AppScan" class="headerlink" title="3.AppScan"></a>3.AppScan</h2><h2 id="4-SQLMap"><a href="#4-SQLMap" class="headerlink" title="4.SQLMap"></a>4.SQLMap</h2><h2 id="5-XSStrike"><a href="#5-XSStrike" class="headerlink" title="5.XSStrike"></a>5.XSStrike</h2><h2 id="6-dirb"><a href="#6-dirb" class="headerlink" title="6.dirb"></a>6.dirb</h2><h2 id="7-御剑"><a href="#7-御剑" class="headerlink" title="7.御剑"></a>7.御剑</h2><h1 id="三、在线搜索"><a href="#三、在线搜索" class="headerlink" title="三、在线搜索"></a>三、在线搜索</h1><h2 id="1-zoomeye-org"><a href="#1-zoomeye-org" class="headerlink" title="1.zoomeye.org"></a>1.zoomeye.org</h2><h2 id="2-fofa-so"><a href="#2-fofa-so" class="headerlink" title="2.fofa.so"></a>2.fofa.so</h2><h2 id="3-shodan-io"><a href="#3-shodan-io" class="headerlink" title="3.shodan.io"></a>3.shodan.io</h2><h2 id="4-微步"><a href="#4-微步" class="headerlink" title="4.微步"></a>4.微步</h2><h2 id="5-域名注册商"><a href="#5-域名注册商" class="headerlink" title="5.域名注册商"></a>5.域名注册商</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;一、主机扫描&quot;&gt;&lt;a href=&quot;#一、主机扫描&quot; class=&quot;headerlink&quot; title=&quot;一、主机扫描&quot;&gt;&lt;/a&gt;一、主机扫描&lt;/h1&gt;&lt;h2 id=&quot;1-nmap&quot;&gt;&lt;a href=&quot;#1-nmap&quot; class=&quot;hea</summary>
+      
+    
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/categories/%E7%BD%91%E5%AE%89/"/>
+    
+    
+    <category term="网安" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E5%AE%89/"/>
+    
+    <category term="工具" scheme="http://www.tanglx.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="渗透" scheme="http://www.tanglx.cn/tags/%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>armbian_arm64架构下部署lnmp环境</title>
