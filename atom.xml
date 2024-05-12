@@ -405,38 +405,6 @@
   </entry>
   
   <entry>
-    <title>armbian_arm64架构下部署lnmp环境</title>
-    <link href="http://www.tanglx.cn/2024/03/18/linux/armbian_arm64%E6%9E%B6%E6%9E%84%E4%B8%8B%E9%83%A8%E7%BD%B2lnmp%E7%8E%AF%E5%A2%83/"/>
-    <id>http://www.tanglx.cn/2024/03/18/linux/armbian_arm64%E6%9E%B6%E6%9E%84%E4%B8%8B%E9%83%A8%E7%BD%B2lnmp%E7%8E%AF%E5%A2%83/</id>
-    <published>2024-03-18T10:44:55.000Z</published>
-    <updated>2024-03-18T15:53:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>[toc]</p><h1 id="一、基本设置"><a href="#一、基本设置" class="headerlink" title="一、基本设置"></a>一、基本设置</h1><p><strong>1.更新软件源</strong></p><pre><code class="bash">sudo apt-get updatesudo apt-get upgradesudo apt-get dist-upgrade</code></pre><p><strong>2.关闭防火墙</strong></p><pre><code class="bash"> vim /etc/ufw/ufw.conf //编辑配置文件ENABLED=no//将内容从yes值改为no</code></pre><h1 id="二、mysql安装与配置"><a href="#二、mysql安装与配置" class="headerlink" title="二、mysql安装与配置"></a>二、mysql安装与配置</h1><p><strong>1.安装mysql</strong></p><pre><code class="bash">sudo apt-get install mysql-server</code></pre><p><strong>2.启动mysql</strong></p><pre><code class="bash">sudo systemctl start mysql sudo systemctl enable mysql</code></pre><p><strong>3.修改mysql密码</strong></p><pre><code class="bash">mysql -u root -p//登录mysql默认密码为空，直接回车use mysql;CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;new_password&#39;;  // 创建局域网络账号GRANT ALL ON *.* TO &#39;root&#39;@&#39;%&#39; WITH GRANT OPTION; // 分配权限ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;new_password&#39;;//new_password为新密码alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &#39;new_password&#39;;  //远程密码FLUSH PRIVILEGES;//刷新权限使更改生效EXIT;//退出mysql</code></pre><p><strong>4.mysql修改配置文件开启远程</strong></p><pre><code class="gradle">vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></pre><p>修改配置文件，注释掉bind-address &#x3D; 127.0.0.1  和 mysqlx-bind-address    &#x3D; 127.0.0.1</p><p>4.重启mysql</p><pre><code class="maxima">systemctl restart mysql</code></pre><h1 id="三、php的安装"><a href="#三、php的安装" class="headerlink" title="三、php的安装"></a>三、php的安装</h1><p><strong>1.安装PHP及所需模块</strong></p><pre><code class="bash">sudo apt-get install php-fpm php-mysql php-common php-mbstring php-xml php-cli php-gd php-curlsudo systemctl start php8.1-fpm    //可能和我版本不一样，自查后修改sudo systemctl enable php8.1-fpm//可能和我版本不一样，自查后修改</code></pre><h1 id="四、nginx安装与配置"><a href="#四、nginx安装与配置" class="headerlink" title="四、nginx安装与配置"></a>四、nginx安装与配置</h1><p><strong>1.安装nginx并设置开机自启动</strong></p><pre><code class="bash">sudo apt-get install nginxsystemctl start nginx.service systemctl enable nginx.service </code></pre><p><strong>2.配置Nginx与PHP处理：</strong></p><p> 1)编辑配置文件</p><pre><code class="bash">sudo vim /etc/nginx/sites-available/default</code></pre><p>2)在文件中添加以下内容以处理PHP请求：(1.注意需要将内容包含到server{}中2.php*.*版本根据自身安装版本选择)</p><pre><code class="bash">location ~ \.php$ &#123;    include snippets/fastcgi-php.conf;    fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;&#125;</code></pre><p>3)之后将index.php 添加到server{}中，将默认识别改文件</p><pre><code class="delphi">index index.php index.html index.htm;</code></pre><p>4)测试并重启nginx服务<br>sudo nginx -t<br>sudo systemctl restart nginx</p><p>)其它需要参考模板修改</p><pre><code class="bash">server &#123;    listen 80;    server_name example.com;    root /var/www/html;     index index.php index.html index.htm;    error_log  /var/log/nginx/error.log;    access_log /var/log/nginx/access.log;     location / &#123;        try_files $uri $uri/ =404;    &#125;     location ~ \.php$ &#123;        include snippets/fastcgi-php.conf;        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock; # 根据PHP版本和配置调整        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;        include fastcgi_params;    &#125;&#125;</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h1 id=&quot;一、基本设置&quot;&gt;&lt;a href=&quot;#一、基本设置&quot; class=&quot;headerlink&quot; title=&quot;一、基本设置&quot;&gt;&lt;/a&gt;一、基本设置&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;1.更新软件源&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code c</summary>
-      
-    
-    
-    
-    <category term="linux" scheme="http://www.tanglx.cn/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://www.tanglx.cn/tags/linux/"/>
-    
-    <category term="armbian" scheme="http://www.tanglx.cn/tags/armbian/"/>
-    
-    <category term="arm64" scheme="http://www.tanglx.cn/tags/arm64/"/>
-    
-    <category term="lnmp" scheme="http://www.tanglx.cn/tags/lnmp/"/>
-    
-  </entry>
-  
-  <entry>
     <title>华为设备开启dhcp服务</title>
     <link href="http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1/"/>
     <id>http://www.tanglx.cn/2024/03/11/%E7%BD%91%E7%BB%9C/%E5%8D%8E%E4%B8%BA%E8%AE%BE%E5%A4%87%E5%BC%80%E5%90%AFdhcp%E6%9C%8D%E5%8A%A1/</id>
@@ -504,7 +472,7 @@
     <link href="http://www.tanglx.cn/2023/07/18/linux/manjaro%E5%BD%95%E9%9F%B3%E9%99%8D%E5%99%AA/"/>
     <id>http://www.tanglx.cn/2023/07/18/linux/manjaro%E5%BD%95%E9%9F%B3%E9%99%8D%E5%99%AA/</id>
     <published>2023-07-18T06:37:46.000Z</published>
-    <updated>2024-03-05T12:21:57.340Z</updated>
+    <updated>2024-05-12T11:44:18.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>录视频时候发现有噪音问题，网上找了很久，没有找到办法，archwiki有相关教程也没能解决，于是想到以前kalilinux作为主力机时候也有出现过这个问题，于是用相同的方法解决了这个问题。</p><h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><p><strong>1.备份配置文件</strong></p><pre><code class="shell">sudo cp /etc/pulse/default.pa /etc/pulse/default.pa.bak </code></pre><p>2.修改配置文件</p><pre><code class="shell">sudo vim /etc/pulse/default.pa </code></pre><p>3.将下面的代码添加到default.pa文件结尾</p><pre><code class="shell">#Active Noise Removal.ifexists module-echo-cancel.soload-module module-echo-cancel aec_method=webrtc source_name=mic source_properties=device.description=MicHDset-default-source &quot;mic&quot;.endif </code></pre><blockquote><p>此方法测试发现能够使用在debian发行版和arch发行版，其它linux自测</p></blockquote>]]></content>
     
@@ -516,10 +484,10 @@
     
     
     
-    <category term="Linux" scheme="http://www.tanglx.cn/categories/Linux/"/>
+    <category term="linux" scheme="http://www.tanglx.cn/categories/linux/"/>
     
     
-    <category term="Linux" scheme="http://www.tanglx.cn/tags/Linux/"/>
+    <category term="linux" scheme="http://www.tanglx.cn/tags/linux/"/>
     
     <category term="manjaro" scheme="http://www.tanglx.cn/tags/manjaro/"/>
     
@@ -532,7 +500,7 @@
     <link href="http://www.tanglx.cn/2021/05/31/linux/%E6%88%91%E7%94%A8%E7%9A%84manjaro%E8%BD%AF%E4%BB%B6/"/>
     <id>http://www.tanglx.cn/2021/05/31/linux/%E6%88%91%E7%94%A8%E7%9A%84manjaro%E8%BD%AF%E4%BB%B6/</id>
     <published>2021-05-31T02:24:00.000Z</published>
-    <updated>2024-03-05T12:21:57.340Z</updated>
+    <updated>2024-05-12T11:44:08.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>循序渐进收集Linux下好用的软件，学习它并替代Windows下的各类软件</p><h1 id="GUI-总览"><a href="#GUI-总览" class="headerlink" title="GUI 总览"></a>GUI 总览</h1><table><thead><tr><th>软件名称</th><th>类别</th><th>安装方式</th><th>备注</th></tr></thead><tbody><tr><td><strong>视频图片类</strong></td><td></td><td></td><td></td></tr><tr><td>kdenlive</td><td>视频处理</td><td>pacman</td><td>视频剪辑软件</td></tr><tr><td>gimp</td><td>图片处理</td><td>pacman</td><td>Linux下的PS</td></tr><tr><td>flameshot</td><td>截图工具</td><td>pacman</td><td>Linux下非常强大的截图工具</td></tr><tr><td>vokoscreen</td><td>视频录制</td><td>pacman</td><td>优秀的录屏软件</td></tr><tr><td>nomacs</td><td>图片查看工具</td><td>pacman</td><td>可以对图片进行简单编辑</td></tr><tr><td>vlc</td><td>视频查看工具</td><td>pacman</td><td>查看视频</td></tr><tr><td>picgo</td><td>图片上传</td><td><a href="https://aur.archlinux.org/packages/picgo/">aur</a></td><td>作图床配合markdown</td></tr><tr><td>cheese</td><td>拍照</td><td>pacman</td><td>茄子拍照</td></tr><tr><td><strong>办公学习类</strong></td><td></td><td></td><td></td></tr><tr><td>gnome-shell-pomodoro</td><td>时间管理</td><td><a href="https://aur.archlinux.org/packages/gnome-shell-pomodoro/">aur</a></td><td>番茄钟</td></tr><tr><td>小书匠</td><td>markdown</td><td><a href="https://github.com/suziwen/markdownxiaoshujiang/releases">http</a></td><td>markdown笔记软件</td></tr><tr><td>typora</td><td>markdown</td><td>pacman</td><td>markdown笔记软件，比较火</td></tr><tr><td>edrawmax-cn</td><td>流程图</td><td><a href="https://aur.archlinux.org/packages/edrawmax-cn/">aur</a></td><td>”亿图图示“类似visio</td></tr><tr><td>thunderbird</td><td>通讯邮箱</td><td>pacman</td><td>“雷鸟” 邮箱</td></tr><tr><td>teamviewer</td><td>远程控制</td><td>pacman</td><td>全平台通用</td></tr><tr><td>telegram</td><td>通讯交流</td><td><a href="https://aur.archlinux.org/64gram-desktop.git">aur</a></td><td>telegram</td></tr><tr><td>geary</td><td>通讯邮箱</td><td>pacman</td><td>邮箱</td></tr><tr><td><strong>小工具</strong></td><td></td><td></td><td></td></tr><tr><td>utools</td><td>工具集</td><td>aur</td><td>工具及搜索</td></tr><tr><td>v2raya</td><td>代理</td><td>aur</td><td>支持多种协议，需要安装v2ray-core</td></tr><tr><td>etcher</td><td>U盘制作</td><td>aur</td><td>好用的U盘制作工具</td></tr><tr><td>gparted</td><td>分区软件</td><td>pacman</td><td>分区工具</td></tr><tr><td>xunlei-bin</td><td>下载工具</td><td>aur</td><td>迅雷</td></tr><tr><td>freedownloadmanager</td><td>下载工具</td><td>pacman</td><td>FDM</td></tr><tr><td>baidunetdisk-bin</td><td>网盘</td><td>aur</td><td>百度云网盘</td></tr><tr><td>checkra1n-cli</td><td>苹果越狱</td><td>aur</td><td>苹果越狱软件</td></tr><tr><td>remmina freeedp</td><td>RDP连接工具,需要再安装freerdp</td><td>pacman</td><td>需要下载freerdp插件</td></tr><tr><td>alacritty</td><td>终端</td><td>pacman</td><td>显卡渲染的终端</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td><strong>影音娱乐</strong></td><td></td><td></td><td></td></tr><tr><td>netease-cloud-music</td><td>音乐</td><td>pacman</td><td>网易云音乐</td></tr><tr><td>electron-netease-cloud-music</td><td>音乐</td><td>pacman</td><td>非官方网易云音乐</td></tr><tr><td><strong>浏览器</strong></td><td></td><td></td><td></td></tr><tr><td>microsoft-edge-stable-bin</td><td>浏览器</td><td>yay</td><td>edge浏览器</td></tr><tr><td>google-chrome</td><td>浏览器</td><td>yay</td><td>google浏览器</td></tr><tr><td>firefox-esr-i18n-zh-cn</td><td>浏览器</td><td>yay</td><td>firefox浏览器</td></tr></tbody></table><h1 id="CLI-总览"><a href="#CLI-总览" class="headerlink" title="CLI 总览"></a>CLI 总览</h1><table><thead><tr><th>软件名称</th><th>类别</th><th>安装方式</th><th>备注</th></tr></thead><tbody><tr><td><strong>系统必备</strong></td><td></td><td></td><td></td></tr><tr><td>dhcpcd</td><td></td><td></td><td></td></tr><tr><td>man-pages-zh_cn man-pages-zh_tw</td><td>中文man</td><td>pacman</td><td>这是两个包，都要安装</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>]]></content>
     
@@ -545,14 +513,14 @@
     
     
     
-    <category term="Linux" scheme="http://www.tanglx.cn/categories/Linux/"/>
+    <category term="linux" scheme="http://www.tanglx.cn/categories/linux/"/>
     
     
-    <category term="Linux" scheme="http://www.tanglx.cn/tags/Linux/"/>
-    
-    <category term="manjaro" scheme="http://www.tanglx.cn/tags/manjaro/"/>
+    <category term="linux" scheme="http://www.tanglx.cn/tags/linux/"/>
     
     <category term="软件" scheme="http://www.tanglx.cn/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="manjaro" scheme="http://www.tanglx.cn/tags/manjaro/"/>
     
   </entry>
   
