@@ -458,13 +458,13 @@
     
     <category term="网络" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E7%BB%9C/"/>
     
-    <category term="数通" scheme="http://www.tanglx.cn/tags/%E6%95%B0%E9%80%9A/"/>
-    
     <category term="华为" scheme="http://www.tanglx.cn/tags/%E5%8D%8E%E4%B8%BA/"/>
     
     <category term="命令" scheme="http://www.tanglx.cn/tags/%E5%91%BD%E4%BB%A4/"/>
     
     <category term="dhcp" scheme="http://www.tanglx.cn/tags/dhcp/"/>
+    
+    <category term="数通" scheme="http://www.tanglx.cn/tags/%E6%95%B0%E9%80%9A/"/>
     
   </entry>
   
@@ -491,11 +491,11 @@
     
     <category term="网络" scheme="http://www.tanglx.cn/tags/%E7%BD%91%E7%BB%9C/"/>
     
-    <category term="数通" scheme="http://www.tanglx.cn/tags/%E6%95%B0%E9%80%9A/"/>
-    
     <category term="华为" scheme="http://www.tanglx.cn/tags/%E5%8D%8E%E4%B8%BA/"/>
     
     <category term="命令" scheme="http://www.tanglx.cn/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+    <category term="数通" scheme="http://www.tanglx.cn/tags/%E6%95%B0%E9%80%9A/"/>
     
   </entry>
   
