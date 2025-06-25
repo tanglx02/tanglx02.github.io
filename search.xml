@@ -120,11 +120,11 @@
     
     
     <entry>
-      <title>debian基础配置</title>
-      <link href="/2025/01/10/linux/debian%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/"/>
-      <url>/2025/01/10/linux/debian%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</url>
+      <title>debian上挂载坚果云</title>
+      <link href="/2025/01/10/linux/debian%E4%B8%8A%E6%8C%82%E8%BD%BD%E5%9D%9A%E6%9E%9C%E4%BA%91/"/>
+      <url>/2025/01/10/linux/debian%E4%B8%8A%E6%8C%82%E8%BD%BD%E5%9D%9A%E6%9E%9C%E4%BA%91/</url>
       
-        <content type="html"><![CDATA[<h1 id="一、配置软件源"><a href="#一、配置软件源" class="headerlink" title="一、配置软件源"></a>一、配置软件源</h1><p>编辑<code>/etc/apt/sources.list</code>，添加下面地址(bookworm为debian12的代号，其它debian需要更换代号)</p><pre><code class="shell">deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmwaredeb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmwaredeb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmwaredeb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmwaredeb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmwaredeb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmwaredeb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmwaredeb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</code></pre><p>更新源</p><pre><code class="shell">sudo apt update</code></pre><h1 id="二、配置静态地址"><a href="#二、配置静态地址" class="headerlink" title="二、配置静态地址"></a>二、配置静态地址</h1><p>查看网卡名称<code>ip a</code><br>编辑网卡配置文件<code>vi /etc/network/interfaces</code></p><pre><code class="shell">auto ens32allow-hotplug ens32iface ens32 inet staticaddress 192.168.88.150netmask 255.255.255.0gateway 192.168.88.2</code></pre><p>重启网卡<code>systemctl restart networking.service</code></p><p>配置dns<code>vi /etc/resolv.conf</code></p><pre><code class="shell">nameserver 114.114.114.114nameserver 8.8.8.8nameserver 8.8.8.4</code></pre>]]></content>
+        <content type="html"><![CDATA[<h1 id="一、安装相关包"><a href="#一、安装相关包" class="headerlink" title="一、安装相关包"></a>一、安装相关包</h1><pre><code class="shell">apt updateapt install davfs2</code></pre><p>借助davfs2这个工具挂载WebDAV服务，其它操作也一样的道理</p><h2 id="二、获取坚果云WebDAV"><a href="#二、获取坚果云WebDAV" class="headerlink" title="二、获取坚果云WebDAV"></a>二、获取坚果云WebDAV</h2><p><a href="https://www.jianguoyun.com/d/home#/safety">坚果云链接</a><br>示例：</p><pre><code class="text">服务器地址： https://dav.jianguoyun.com/dav/账户：test@aliyun.com(账户)密码：awyc5p7rgwq95e8c (应用密码)</code></pre><h1 id="三、配置davfs2"><a href="#三、配置davfs2" class="headerlink" title="三、配置davfs2"></a>三、配置davfs2</h1><p><strong>1、修改davfs.conf文件</strong><br>vim  &#x2F;etc&#x2F;davfs2&#x2F;davfs2.conf<br>找到对应的值改为1</p><pre><code class="shell">ignore_dav_header 1</code></pre><p>ignore_dav_header 1 是为了兼容坚果云的webdav协议</p><p><strong>2、配置webdav密码到本地</strong></p><p>添加前面拿到的坚果云相关信息保存到secrets文件<br>vim &#x2F;etc&#x2F;davfs2&#x2F;secrets</p><pre><code class="shell">https://dav.jianguoyun.com/dav/ 账号 应用密码</code></pre><p>url中的dav&#x2F;后面可以选择是否加入自己坚果云文件夹</p><p><strong>3、配置挂载</strong><br>创建挂载目录</p><pre><code class="shell">mkdir /mnt/cloud_disk</code></pre><p>手动挂载</p><pre><code class="shell">mount -t davfs -o noexec https://dav.jianguoyun.com/dav /mnt/cloud_disk/</code></pre><p>自动挂载(根据需求配置)</p><ul><li>自动挂载原理上就是开机执行一下手动挂载的命令</li><li>其它linux发行版自行查找设置开机自启脚本的方法，这里以debian作为演示</li></ul><p>把脚本写入到一个&#x2F;etc&#x2F;init.d&#x2F;的脚本文件里面</p><pre><code class="bash">echo &quot;mount -t davfs -o noexec https://dav.jianguoyun.com/dav /mnt/cloud_disk/&quot; &gt; /etc/init.d/cloud_disk.sh</code></pre><p>赋予执行权限并把这个脚本加入update-rc.d中</p><pre><code class="bash">chmod +x /etc/init.d/cloud_disk.shupdate-rc.d cloud_disk.sh defaults 99</code></pre><p>把脚本给到systemd来管理自启<br>创建一个.service的文件</p><pre><code class="gradle">touch /etc/systemd/system/cloud_disk.service</code></pre><p>添加以下内容</p><pre><code class="ini">[Unit]Description=My custom startup script [Service]ExecStart=/etc/init.d/cloud_disk.sh [Install]WantedBy=multi-user.target</code></pre><p>设置开机自启</p><pre><code class="bash">systemctl enable cloud_disk.servicesystemctl start cloud_disk.service</code></pre><p>加入到&#x2F;etc&#x2F;fstab</p><pre><code class="bash">echo &quot;https://dav.jianguoyun.com/dav/ /mnt/cloud_disk/ davfs user,noauto,x-systemd.automount 0 0&quot; &gt;&gt; /etc/fstab</code></pre>]]></content>
       
       
       <categories>
@@ -147,11 +147,11 @@
     
     
     <entry>
-      <title>debian上挂载坚果云</title>
-      <link href="/2025/01/10/linux/debian%E4%B8%8A%E6%8C%82%E8%BD%BD%E5%9D%9A%E6%9E%9C%E4%BA%91/"/>
-      <url>/2025/01/10/linux/debian%E4%B8%8A%E6%8C%82%E8%BD%BD%E5%9D%9A%E6%9E%9C%E4%BA%91/</url>
+      <title>debian基础配置</title>
+      <link href="/2025/01/10/linux/debian%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/"/>
+      <url>/2025/01/10/linux/debian%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</url>
       
-        <content type="html"><![CDATA[<h1 id="一、安装相关包"><a href="#一、安装相关包" class="headerlink" title="一、安装相关包"></a>一、安装相关包</h1><pre><code class="shell">apt updateapt install davfs2</code></pre><p>借助davfs2这个工具挂载WebDAV服务，其它操作也一样的道理</p><h2 id="二、获取坚果云WebDAV"><a href="#二、获取坚果云WebDAV" class="headerlink" title="二、获取坚果云WebDAV"></a>二、获取坚果云WebDAV</h2><p><a href="https://www.jianguoyun.com/d/home#/safety">坚果云链接</a><br>示例：</p><pre><code class="text">服务器地址： https://dav.jianguoyun.com/dav/账户：test@aliyun.com(账户)密码：awyc5p7rgwq95e8c (应用密码)</code></pre><h1 id="三、配置davfs2"><a href="#三、配置davfs2" class="headerlink" title="三、配置davfs2"></a>三、配置davfs2</h1><p><strong>1、修改davfs.conf文件</strong><br>vim  &#x2F;etc&#x2F;davfs2&#x2F;davfs2.conf<br>找到对应的值改为1</p><pre><code class="shell">ignore_dav_header 1</code></pre><p>ignore_dav_header 1 是为了兼容坚果云的webdav协议</p><p><strong>2、配置webdav密码到本地</strong></p><p>添加前面拿到的坚果云相关信息保存到secrets文件<br>vim &#x2F;etc&#x2F;davfs2&#x2F;secrets</p><pre><code class="shell">https://dav.jianguoyun.com/dav/ 账号 应用密码</code></pre><p>url中的dav&#x2F;后面可以选择是否加入自己坚果云文件夹</p><p><strong>3、配置挂载</strong><br>创建挂载目录</p><pre><code class="shell">mkdir /mnt/cloud_disk</code></pre><p>手动挂载</p><pre><code class="shell">mount -t davfs -o noexec https://dav.jianguoyun.com/dav /mnt/cloud_disk/</code></pre><p>自动挂载(根据需求配置)</p><ul><li>自动挂载原理上就是开机执行一下手动挂载的命令</li><li>其它linux发行版自行查找设置开机自启脚本的方法，这里以debian作为演示</li></ul><p>把脚本写入到一个&#x2F;etc&#x2F;init.d&#x2F;的脚本文件里面</p><pre><code class="bash">echo &quot;mount -t davfs -o noexec https://dav.jianguoyun.com/dav /mnt/cloud_disk/&quot; &gt; /etc/init.d/cloud_disk.sh</code></pre><p>赋予执行权限并把这个脚本加入update-rc.d中</p><pre><code class="bash">chmod +x /etc/init.d/cloud_disk.shupdate-rc.d cloud_disk.sh defaults 99</code></pre><p>把脚本给到systemd来管理自启<br>创建一个.service的文件</p><pre><code class="gradle">touch /etc/systemd/system/cloud_disk.service</code></pre><p>添加以下内容</p><pre><code class="ini">[Unit]Description=My custom startup script [Service]ExecStart=/etc/init.d/cloud_disk.sh [Install]WantedBy=multi-user.target</code></pre><p>设置开机自启</p><pre><code class="bash">systemctl enable cloud_disk.servicesystemctl start cloud_disk.service</code></pre><p>加入到&#x2F;etc&#x2F;fstab</p><pre><code class="bash">echo &quot;https://dav.jianguoyun.com/dav/ /mnt/cloud_disk/ davfs user,noauto,x-systemd.automount 0 0&quot; &gt;&gt; /etc/fstab</code></pre>]]></content>
+        <content type="html"><![CDATA[<h1 id="一、配置软件源"><a href="#一、配置软件源" class="headerlink" title="一、配置软件源"></a>一、配置软件源</h1><p>编辑<code>/etc/apt/sources.list</code>，添加下面地址(bookworm为debian12的代号，其它debian需要更换代号)</p><pre><code class="shell">deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmwaredeb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmwaredeb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmwaredeb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmwaredeb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmwaredeb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmwaredeb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmwaredeb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware</code></pre><p>更新源</p><pre><code class="shell">sudo apt update</code></pre><h1 id="二、配置静态地址"><a href="#二、配置静态地址" class="headerlink" title="二、配置静态地址"></a>二、配置静态地址</h1><p>查看网卡名称<code>ip a</code><br>编辑网卡配置文件<code>vi /etc/network/interfaces</code></p><pre><code class="shell">auto ens32allow-hotplug ens32iface ens32 inet staticaddress 192.168.88.150netmask 255.255.255.0gateway 192.168.88.2</code></pre><p>重启网卡<code>systemctl restart networking.service</code></p><p>配置dns<code>vi /etc/resolv.conf</code></p><pre><code class="shell">nameserver 114.114.114.114nameserver 8.8.8.8nameserver 8.8.8.4</code></pre>]]></content>
       
       
       <categories>
@@ -1058,13 +1058,13 @@
             
             <tag> 网络 </tag>
             
-            <tag> 数通 </tag>
-            
             <tag> 华为 </tag>
             
             <tag> 命令 </tag>
             
             <tag> dhcp </tag>
+            
+            <tag> 数通 </tag>
             
         </tags>
       
@@ -1091,11 +1091,11 @@
             
             <tag> 网络 </tag>
             
-            <tag> 数通 </tag>
-            
             <tag> 华为 </tag>
             
             <tag> 命令 </tag>
+            
+            <tag> 数通 </tag>
             
         </tags>
       
